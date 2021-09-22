@@ -17,15 +17,15 @@ public class AsthmaIdx {
     private Long id;
 
     @Column
-    private int uvDay1;
+    private int asthmaIdxDay1;
 
     @Column
-    private int uvDay2;
+    private int asthmaIdxDay2;
 
     @Column
-    private int uvDay3;
+    private int asthmaIdxDay3;
 
     @Column
-    private int uvDay4;
-    
+    private int asthmaIdxDay4;
+
 }
