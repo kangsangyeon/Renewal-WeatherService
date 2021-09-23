@@ -1,5 +1,8 @@
 package com.renewal.weatherservicev2.domain.entity.external;
 
+import com.renewal.weatherservicev2.domain.vo.HealthResponseVO;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
@@ -8,7 +11,9 @@ import javax.persistence.*;
 
 @Getter
 @Entity
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class AsthmaIdx {
 
     @Id
@@ -17,15 +22,28 @@ public class AsthmaIdx {
     private Long id;
 
     @Column
-    private int asthmaIdxDay1;
+    private String dateTime;
 
     @Column
-    private int asthmaIdxDay2;
+    private String asthmaIdxDay1;
 
     @Column
-    private int asthmaIdxDay3;
+    private String asthmaIdxDay2;
 
     @Column
-    private int asthmaIdxDay4;
+    private String asthmaIdxDay3;
+
+    @Column
+    private String asthmaIdxDay4;
+
+    public AsthmaIdx from(HealthResponseVO apiResponse) {
+        return AsthmaIdx.builder()
+                .dateTime(apiResponse.getDateTime())
+                .asthmaIdxDay1(apiResponse.getDay1())
+                .asthmaIdxDay2(apiResponse.getDay2())
+                .asthmaIdxDay3(apiResponse.getDay3())
+                .asthmaIdxDay4(apiResponse.getDay4())
+                .build();
+    }
 
 }
