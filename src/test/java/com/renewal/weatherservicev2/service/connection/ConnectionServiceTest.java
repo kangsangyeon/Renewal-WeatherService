@@ -2,6 +2,7 @@ package com.renewal.weatherservicev2.service.connection;
 
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
 import com.renewal.weatherservicev2.domain.vo.openapi.request.health.ColdIdxRequestVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.request.living.UVIdxRequestVO;
 import com.renewal.weatherservicev2.util.DateTime;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,7 @@ class ConnectionServiceTest {
     @DisplayName("API 연결 테스트")
     void connect() {
 
-        OpenApiRequestInterface request = ColdIdxRequestVO.builder()
+        OpenApiRequestInterface request = UVIdxRequestVO.builder()
                 .admCode("1100000000")
                 .date(DateTime.getYesterdayYYYYMMDD())
                 .build();

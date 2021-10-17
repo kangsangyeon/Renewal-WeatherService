@@ -2,7 +2,7 @@ package com.renewal.weatherservicev2.domain.vo.openapi.request.health;
 
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.LivingAndHealthIdxRequestVO;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
-import com.renewal.weatherservicev2.util.Const;
+import com.renewal.weatherservicev2.util.OpenApiURL;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -28,7 +28,7 @@ public class OakPollenRiskIdxRequestVO extends LivingAndHealthIdxRequestVO imple
 
     public URL makeUrl() {
         try {
-            String url = Const.OPEN_API_URL_FOR_HEALTH + Const.SUB_URL_FOR_OAK_POLLEN_RISK_IDX + makeCommonSubUrl(admCode, date);
+            String url = OpenApiURL.OPEN_API_URL_FOR_HEALTH + OpenApiURL.SUB_URL_FOR_OAK_POLLEN_RISK_IDX + makeCommonSubUrl(admCode, date);
             return new URL(url);
 
         } catch (Exception e) {
