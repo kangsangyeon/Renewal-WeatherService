@@ -1,4 +1,4 @@
-package com.renewal.weatherservicev2.domain.vo.openapi.request.health;
+package com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health;
 
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.LivingAndHealthIdxRequestVO;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;

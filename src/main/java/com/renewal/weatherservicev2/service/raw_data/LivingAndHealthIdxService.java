@@ -1,9 +1,9 @@
 package com.renewal.weatherservicev2.service.raw_data;
 
-import com.renewal.weatherservicev2.domain.entity.external.AsthmaIdx;
+import com.renewal.weatherservicev2.domain.entity.external.living_and_health.AsthmaIdx;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
-import com.renewal.weatherservicev2.domain.vo.openapi.request.health.AsthmaIdxRequestVO;
-import com.renewal.weatherservicev2.domain.vo.openapi.response.health.abstr.LivingAndHealthResponseVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.AsthmaIdxRequestVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthResponseVO;
 import com.renewal.weatherservicev2.service.connection.ConnectionService;
 import com.renewal.weatherservicev2.service.parser.LivingAndHealthJsonParser;
 import lombok.RequiredArgsConstructor;

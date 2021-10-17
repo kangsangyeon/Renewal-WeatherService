@@ -1,4 +1,4 @@
-package com.renewal.weatherservicev2.domain.vo.openapi.response.health.abstr;
+package com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health;
 
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiResponseInterface;
 import lombok.*;

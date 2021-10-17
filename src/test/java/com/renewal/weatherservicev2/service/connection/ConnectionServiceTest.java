@@ -1,8 +1,7 @@
 package com.renewal.weatherservicev2.service.connection;
 
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
-import com.renewal.weatherservicev2.domain.vo.openapi.request.health.ColdIdxRequestVO;
-import com.renewal.weatherservicev2.domain.vo.openapi.request.living.UVIdxRequestVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.UVIdxRequestVO;
 import com.renewal.weatherservicev2.util.DateTime;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

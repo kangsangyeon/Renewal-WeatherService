@@ -1,7 +1,7 @@
-package com.renewal.weatherservicev2.domain.entity.external;
+package com.renewal.weatherservicev2.domain.entity.external.living_and_health;
 
 import com.renewal.weatherservicev2.domain.entity.external.abstr.DomainDataFromExternal;
-import com.renewal.weatherservicev2.domain.vo.openapi.response.health.abstr.LivingAndHealthResponseVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthResponseVO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
