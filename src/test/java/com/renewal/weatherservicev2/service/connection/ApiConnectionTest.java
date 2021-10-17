@@ -11,10 +11,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.net.URL;
 
 @SpringBootTest
-class ConnectionServiceTest {
+class ApiConnectionTest {
 
     @Autowired
-    private ConnectionService connectionService;
+    private ApiConnection apiConnection;
 
     @Test
     @DisplayName("API 연결 테스트")
@@ -26,6 +26,6 @@ class ConnectionServiceTest {
                 .build();
 
         URL url = request.makeUrl();
-        System.out.println(connectionService.connect(url));
+        System.out.println(apiConnection.connect(url));
     }
 }

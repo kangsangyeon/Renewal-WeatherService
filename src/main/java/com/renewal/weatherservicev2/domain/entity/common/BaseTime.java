@@ -1,4 +1,4 @@
-package com.renewal.weatherservicev2.domain.entity;
+package com.renewal.weatherservicev2.domain.entity.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;

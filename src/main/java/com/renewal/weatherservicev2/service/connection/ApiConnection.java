@@ -13,7 +13,7 @@ import java.net.URL;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class ConnectionService {
+public class ApiConnection {
 
     // 연결
     public String connect(URL url) {
