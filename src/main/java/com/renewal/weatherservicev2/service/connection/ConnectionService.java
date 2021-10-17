@@ -17,7 +17,7 @@ import java.net.URL;
 public class ConnectionService {
 
     // 연결
-    public String connect(URL url) throws RuntimeException {
+    public String connect(URL url) {
         try {
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");

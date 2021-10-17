@@ -1,6 +1,6 @@
 package com.renewal.weatherservicev2.service.parser;
 
-import com.renewal.weatherservicev2.domain.vo.HealthResponseVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.response.HealthResponseVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONArray;
@@ -40,7 +40,7 @@ public class HealthJsonParser {
         }
     }
 
-    private JSONObject parseContentFrom(String data) throws ParseException {
+    public JSONObject parseContentFrom(String data) throws ParseException {
         JSONParser parser = new JSONParser();
         JSONObject jsonObject = (JSONObject) parser.parse(data);
         JSONObject response = commonJsonParser.parseObjectFrom(jsonObject, "response");

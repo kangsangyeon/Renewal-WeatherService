@@ -1,4 +1,4 @@
-package com.renewal.weatherservicev2.domain.vo;
+package com.renewal.weatherservicev2.domain.vo.openapi.response;
 
 import com.renewal.weatherservicev2.domain.entity.external.AsthmaIdx;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiResponseInterface;

@@ -1,7 +1,7 @@
 package com.renewal.weatherservicev2.service.raw_data;
 
 import com.renewal.weatherservicev2.domain.entity.external.AsthmaIdx;
-import com.renewal.weatherservicev2.domain.vo.HealthResponseVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.response.HealthResponseVO;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
 import com.renewal.weatherservicev2.repository.AsthmaIdxRepository;
 import com.renewal.weatherservicev2.service.connection.ConnectionService;

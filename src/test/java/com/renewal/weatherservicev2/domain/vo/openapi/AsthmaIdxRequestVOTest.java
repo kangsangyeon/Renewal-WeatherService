@@ -1,22 +1,20 @@
 package com.renewal.weatherservicev2.domain.vo.openapi;
 
+import com.renewal.weatherservicev2.domain.vo.openapi.request.AsthmaIdxRequestVO;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class HealthAsthmaIdxUrlRequestVOTest {
+class AsthmaIdxRequestVOTest {
 
     @Test
     @DisplayName("URL 생성 확인")
     void makeUrl() {
 
-        HealthAsthmaIdxUrlRequestVO request = HealthAsthmaIdxUrlRequestVO.builder()
+        AsthmaIdxRequestVO request = AsthmaIdxRequestVO.builder()
                 .admCode("1100000000")
                 .date("20210922")
                 .build();

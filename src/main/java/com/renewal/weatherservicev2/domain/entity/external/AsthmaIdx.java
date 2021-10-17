@@ -1,11 +1,10 @@
 package com.renewal.weatherservicev2.domain.entity.external;
 
-import com.renewal.weatherservicev2.domain.vo.HealthResponseVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.response.HealthResponseVO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.OnDelete;
 
 import javax.persistence.*;
 
