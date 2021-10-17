@@ -1,6 +1,6 @@
-package com.renewal.weatherservicev2.domain.vo.openapi.request;
+package com.renewal.weatherservicev2.domain.vo.openapi.request.health;
 
-import com.renewal.weatherservicev2.domain.vo.openapi.abstr.HealthIdxRequestVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.abstr.LivingAndHealthIdxRequestVO;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
 import com.renewal.weatherservicev2.util.Const;
 import lombok.AllArgsConstructor;
@@ -11,12 +11,17 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.net.URL;
 
+/**
+ * 감기가능지수
+ * 낮음 0, 보통 1, 높음 2, 매우 높음 3
+ * 자료제공기간 : 9월 ~ 4월
+ */
 @Slf4j
 @Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ColdIdxRequestVO extends HealthIdxRequestVO implements OpenApiRequestInterface {
+public class ColdIdxRequestVO extends LivingAndHealthIdxRequestVO implements OpenApiRequestInterface {
 
     private String admCode;      // 행정동코드
     private String date;         // YYYYMMDD

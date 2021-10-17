@@ -5,7 +5,7 @@ import com.renewal.weatherservicev2.util.Const;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-public abstract class HealthIdxRequestVO {
+public abstract class LivingAndHealthIdxRequestVO {
 
     public String makeCommonSubUrl(String admCode, String date) throws UnsupportedEncodingException {
         return "?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + Const.URL_ENCODED_KEY_FOR_DATA_GO_KR +                            /*서비스키*/

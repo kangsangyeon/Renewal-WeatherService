@@ -1,8 +1,7 @@
 package com.renewal.weatherservicev2.service.connection;
 
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
-import com.renewal.weatherservicev2.domain.vo.openapi.request.AsthmaIdxRequestVO;
-import com.renewal.weatherservicev2.domain.vo.openapi.request.ColdIdxRequestVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.request.health.ColdIdxRequestVO;
 import com.renewal.weatherservicev2.util.DateTime;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.net.URL;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ConnectionServiceTest {
