@@ -1,6 +1,5 @@
 package com.renewal.weatherservicev2.domain.entity.external;
 
-import com.renewal.weatherservicev2.domain.entity.BaseTime;
 import com.renewal.weatherservicev2.domain.entity.external.abstr.DomainDataFromExternal;
 import com.renewal.weatherservicev2.domain.vo.openapi.response.health.abstr.LivingAndHealthResponseVO;
 import lombok.AllArgsConstructor;
@@ -15,10 +14,10 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AsthmaIdx extends BaseTime implements DomainDataFromExternal {
+public class PinePollenRiskIdx implements DomainDataFromExternal {
 
     @Id
-    @Column(name = "asthma_id")
+    @Column(name = "pine_pollen_risk_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -26,24 +25,24 @@ public class AsthmaIdx extends BaseTime implements DomainDataFromExternal {
     private String dateTime;
 
     @Column
-    private String asthmaIdxDay1;
+    private String pinePollenRiskIdxDay1;
 
     @Column
-    private String asthmaIdxDay2;
+    private String pinePollenRiskIdxDay2;
 
     @Column
-    private String asthmaIdxDay3;
+    private String pinePollenRiskIdxDay3;
 
     @Column
-    private String asthmaIdxDay4;
+    private String pinePollenRiskIdxDay4;
 
-    public AsthmaIdx from(LivingAndHealthResponseVO response) {
-        return AsthmaIdx.builder()
+    public PinePollenRiskIdx from(LivingAndHealthResponseVO response) {
+        return PinePollenRiskIdx.builder()
                 .dateTime(response.getDateTime())
-                .asthmaIdxDay1(response.getDay1())
-                .asthmaIdxDay2(response.getDay2())
-                .asthmaIdxDay3(response.getDay3())
-                .asthmaIdxDay4(response.getDay4())
+                .pinePollenRiskIdxDay1(response.getDay1())
+                .pinePollenRiskIdxDay2(response.getDay2())
+                .pinePollenRiskIdxDay3(response.getDay3())
+                .pinePollenRiskIdxDay4(response.getDay4())
                 .build();
     }
 }

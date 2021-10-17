@@ -1,6 +1,6 @@
 package com.renewal.weatherservicev2.service.parser;
 
-import com.renewal.weatherservicev2.domain.vo.openapi.response.HealthResponseVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.response.health.abstr.LivingAndHealthResponseVO;
 import org.json.simple.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ class LivingAndHealthJsonParserTest {
             String day3 = commonJsonParser.parseStringFrom(response, "dayaftertomorrow");
             String day4 = commonJsonParser.parseStringFrom(response, "twodaysaftertomorrow");
 
-            HealthResponseVO result = HealthResponseVO.builder()
+            LivingAndHealthResponseVO result = LivingAndHealthResponseVO.builder()
                     .dateTime(dateTime)
                     .day1(day1)
                     .day2(day2)
