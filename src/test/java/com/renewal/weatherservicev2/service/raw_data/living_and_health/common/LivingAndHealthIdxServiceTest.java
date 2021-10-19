@@ -1,4 +1,4 @@
-package com.renewal.weatherservicev2.service.raw_data;
+package com.renewal.weatherservicev2.service.raw_data.living_and_health.common;
 
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
 import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.UVIdxRequestVO;

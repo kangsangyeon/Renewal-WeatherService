@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UVIdx extends BaseTime implements LivingAndHealthIdx {
+public class UvIdx extends BaseTime implements LivingAndHealthIdx {
 
     @Id
     @Column(name = "uv_id")
@@ -37,8 +37,8 @@ public class UVIdx extends BaseTime implements LivingAndHealthIdx {
     @Column
     private String uvIdxDay4;
 
-    public UVIdx from(LivingAndHealthResponseVO response) {
-        return UVIdx.builder()
+    public UvIdx from(LivingAndHealthResponseVO response) {
+        return UvIdx.builder()
                 .dateTime(response.getDateTime())
                 .uvIdxDay1(response.getDay1())
                 .uvIdxDay2(response.getDay2())

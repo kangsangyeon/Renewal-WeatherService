@@ -4,6 +4,7 @@ import com.renewal.weatherservicev2.domain.entity.external.living_and_health.Ast
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
 import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.AsthmaIdxRequestVO;
 import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthResponseVO;
+import com.renewal.weatherservicev2.service.connection.LivingAndHealthConnectionService;
 import com.renewal.weatherservicev2.service.raw_data.living_and_health.common.LivingAndHealthIdxService;
 import com.renewal.weatherservicev2.util.DateTime;
 import org.junit.jupiter.api.Test;
@@ -16,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AsthmaIdxTest {
 
     @Autowired
-    LivingAndHealthIdxService livingAndHealthIdxService;
+    LivingAndHealthConnectionService connectionService;
 
     @Test
     void from() {
@@ -26,7 +27,7 @@ class AsthmaIdxTest {
                 .date(DateTime.getYesterdayYYYYMMDD())
                 .build();
 
-        LivingAndHealthResponseVO response = livingAndHealthIdxService.connectAndGetParsedResponse(request);
+        LivingAndHealthResponseVO response = connectionService.connectAndGetParsedResponse(request);
         AsthmaIdx asthmaIdx =  AsthmaIdx.builder()
                 .dateTime(response.getDateTime())
                 .asthmaIdxDay1(response.getDay1())
