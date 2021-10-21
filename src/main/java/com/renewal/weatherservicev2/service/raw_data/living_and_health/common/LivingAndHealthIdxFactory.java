@@ -1,5 +1,6 @@
 package com.renewal.weatherservicev2.service.raw_data.living_and_health.common;
 
+import com.renewal.weatherservicev2.exception.NonServicePeriodException;
 import com.renewal.weatherservicev2.service.raw_data.living_and_health.specific.*;
 import com.renewal.weatherservicev2.util.OpenApiType;
 import lombok.RequiredArgsConstructor;
@@ -50,8 +51,11 @@ public class LivingAndHealthIdxFactory {
                 default:
                     throw new IllegalArgumentException();
             }
-        } catch (Exception e) {
+        } catch (NonServicePeriodException e) {
             log.error(e.getMessage());
+
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
         }
     }
 
