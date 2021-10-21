@@ -18,12 +18,12 @@ public class AsthmaIdxService {
     private final AsthmaIdxRepository asthmaIdxRepository;
     private final LivingAndHealthConnectionService connectionService;
 
-    public void getAndSaveData(String admCode, String date) {
-        AsthmaIdx asthmaIdx = getData(admCode, date);
+    public void callAndSaveData(String admCode, String date) {
+        AsthmaIdx asthmaIdx = callData(admCode, date);
         saveData(asthmaIdx);
     }
 
-    private AsthmaIdx getData(String admCode, String date) {
+    private AsthmaIdx callData(String admCode, String date) {
         OpenApiRequestInterface request = AsthmaIdxRequestVO.builder()
                 .admCode(admCode)
                 .date(date)

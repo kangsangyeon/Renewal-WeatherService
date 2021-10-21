@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 class AsthmaIdxServiceTest {
 
@@ -21,6 +19,6 @@ class AsthmaIdxServiceTest {
         String admCode = "1100000000";
         String date = DateTime.getYesterdayYYYYMMDD();
 
-        asthmaIdxService.getAndSaveData(admCode, date);
+        asthmaIdxService.callAndSaveData(admCode, date);
     }
 }

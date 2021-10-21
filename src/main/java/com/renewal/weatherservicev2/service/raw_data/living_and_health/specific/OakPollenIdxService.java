@@ -1,14 +1,13 @@
 package com.renewal.weatherservicev2.service.raw_data.living_and_health.specific;
 
-import com.renewal.weatherservicev2.domain.entity.external.living_and_health.AsthmaIdx;
 import com.renewal.weatherservicev2.domain.entity.external.living_and_health.OakPollenRiskIdx;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
-import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.AsthmaIdxRequestVO;
 import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.OakPollenRiskIdxRequestVO;
 import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthResponseVO;
+import com.renewal.weatherservicev2.exception.NonServicePeriodException;
 import com.renewal.weatherservicev2.repository.living_and_health.OakPollenRiskIdxRepository;
 import com.renewal.weatherservicev2.service.connection.LivingAndHealthConnectionService;
-import com.renewal.weatherservicev2.service.raw_data.living_and_health.common.LivingAndHealthIdxService;
+import com.renewal.weatherservicev2.util.DateTime;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -21,12 +20,17 @@ public class OakPollenIdxService {
     private final OakPollenRiskIdxRepository oakPollenRiskIdxRepository;
     private final LivingAndHealthConnectionService connectionService;
 
-    public void getAndSaveData(String admCode, String date) {
-        OakPollenRiskIdx oakPollenRiskIdx = getData(admCode, date);
+    public void callAndSaveData(String admCode, String date) throws NonServicePeriodException {
+        OakPollenRiskIdx oakPollenRiskIdx = callData(admCode, date);
         saveData(oakPollenRiskIdx);
     }
 
-    public OakPollenRiskIdx getData(String admCode, String date) {
+    public OakPollenRiskIdx callData(String admCode, String date) throws NonServicePeriodException {
+
+        if(DateTime.getMonthYYYYMMDD(date) <= 3 || DateTime.getMonthYYYYMMDD(date) >= 7) {
+            throw new NonServicePeriodException("꽃가루농도위험지수(참나무) 자료제공기간인 4-6월이 아닙니다.");
+        }
+
         OpenApiRequestInterface request = OakPollenRiskIdxRequestVO.builder()
                 .admCode(admCode)
                 .date(date)
