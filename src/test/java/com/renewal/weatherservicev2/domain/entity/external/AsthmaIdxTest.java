@@ -5,8 +5,7 @@ import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterf
 import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.AsthmaIdxRequestVO;
 import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthResponseVO;
 import com.renewal.weatherservicev2.service.connection.LivingAndHealthConnectionService;
-import com.renewal.weatherservicev2.service.raw_data.living_and_health.common.LivingAndHealthIdxService;
-import com.renewal.weatherservicev2.util.DateTime;
+import com.renewal.weatherservicev2.util.DateTimeUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,7 +23,7 @@ class AsthmaIdxTest {
 
         OpenApiRequestInterface request = AsthmaIdxRequestVO.builder()
                 .admCode("1100000000")
-                .date(DateTime.getYesterdayYYYYMMDD())
+                .date(DateTimeUtil.getYesterdayYYYYMMDD())
                 .build();
 
         LivingAndHealthResponseVO response = connectionService.connectAndGetParsedResponse(request);

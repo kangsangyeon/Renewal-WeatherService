@@ -4,8 +4,8 @@ import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterf
 import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.UVIdxRequestVO;
 import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthResponseVO;
 import com.renewal.weatherservicev2.service.connection.ApiConnection;
-import com.renewal.weatherservicev2.service.parser.LivingAndHealthJsonParser;
-import com.renewal.weatherservicev2.util.DateTime;
+import com.renewal.weatherservicev2.service.parser.json.LivingAndHealthJsonParser;
+import com.renewal.weatherservicev2.util.DateTimeUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,7 +26,7 @@ class LivingAndHealthIdxServiceTest {
 
         OpenApiRequestInterface request = UVIdxRequestVO.builder()
                 .admCode("1100000000")
-                .date(DateTime.getYesterdayYYYYMMDD())
+                .date(DateTimeUtil.getYesterdayYYYYMMDD())
                 .build();
 
         URL url = request.makeUrl();

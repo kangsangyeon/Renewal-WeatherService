@@ -7,7 +7,7 @@ import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health
 import com.renewal.weatherservicev2.exception.NonServicePeriodException;
 import com.renewal.weatherservicev2.repository.living_and_health.WeedsPollenRiskIdxRepository;
 import com.renewal.weatherservicev2.service.connection.LivingAndHealthConnectionService;
-import com.renewal.weatherservicev2.util.DateTime;
+import com.renewal.weatherservicev2.util.DateTimeUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,7 @@ public class WeedsPollenRiskIdxService {
 
     public WeedsPollenRiskIdx callData(String admCode, String date) throws NonServicePeriodException {
 
-        if(DateTime.getMonthYYYYMMDD(date) <= 7 || DateTime.getMonthYYYYMMDD(date) >= 11) {
+        if(DateTimeUtil.getMonthYYYYMMDD(date) <= 7 || DateTimeUtil.getMonthYYYYMMDD(date) >= 11) {
             throw new NonServicePeriodException("꽃가루농도위험지수(잡초류) 자료제공기간인 8-10월이 아닙니다.");
         }
 

@@ -14,6 +14,7 @@ public class LivingAndHealthIdxService {
 
     private final LivingAndHealthIdxFactory factory;
 
+    // TODO : stream 처리하거나, 최소 for 문 돌리는 걸로 처리하자
     public void getDataFromOpenApiAndSaveByRegion(String admCode, String date) {
         factory.getDataFromOpenApiAndSaveLivingAndHealthIdx(OpenApiType.ASTHMA, admCode, date);
         factory.getDataFromOpenApiAndSaveLivingAndHealthIdx(OpenApiType.COLD, admCode, date);

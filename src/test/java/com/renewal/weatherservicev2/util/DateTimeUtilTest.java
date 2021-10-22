@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DateTimeTest {
+class DateTimeUtilTest {
 
     @Test
     void getNowYYYYMMDD() {

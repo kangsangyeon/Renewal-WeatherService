@@ -2,7 +2,7 @@ package com.renewal.weatherservicev2.service.connection;
 
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
 import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthResponseVO;
-import com.renewal.weatherservicev2.service.parser.LivingAndHealthJsonParser;
+import com.renewal.weatherservicev2.service.parser.json.LivingAndHealthJsonParser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

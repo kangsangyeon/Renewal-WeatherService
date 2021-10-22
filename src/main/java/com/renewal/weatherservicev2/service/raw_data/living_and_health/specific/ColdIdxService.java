@@ -7,7 +7,7 @@ import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health
 import com.renewal.weatherservicev2.exception.NonServicePeriodException;
 import com.renewal.weatherservicev2.repository.living_and_health.ColdIdxRepository;
 import com.renewal.weatherservicev2.service.connection.LivingAndHealthConnectionService;
-import com.renewal.weatherservicev2.util.DateTime;
+import com.renewal.weatherservicev2.util.DateTimeUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,7 @@ public class ColdIdxService {
 
     public ColdIdx callData(String admCode, String date) throws NonServicePeriodException {
 
-        if(DateTime.getMonthYYYYMMDD(date) >= 5 && DateTime.getMonthYYYYMMDD(date) <= 8) {
+        if(DateTimeUtil.getMonthYYYYMMDD(date) >= 5 && DateTimeUtil.getMonthYYYYMMDD(date) <= 8) {
             throw new NonServicePeriodException("감기가능지수 자료제공기간인 4-9월이 아닙니다.");
         }
 

@@ -2,7 +2,7 @@ package com.renewal.weatherservicev2.service.connection;
 
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
 import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.UVIdxRequestVO;
-import com.renewal.weatherservicev2.util.DateTime;
+import com.renewal.weatherservicev2.util.DateTimeUtil;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ class ApiConnectionTest {
 
         OpenApiRequestInterface request = UVIdxRequestVO.builder()
                 .admCode("1100000000")
-                .date(DateTime.getYesterdayYYYYMMDD())
+                .date(DateTimeUtil.getYesterdayYYYYMMDD())
                 .build();
 
         URL url = request.makeUrl();

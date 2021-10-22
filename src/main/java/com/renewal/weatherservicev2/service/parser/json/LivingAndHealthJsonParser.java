@@ -1,4 +1,4 @@
-package com.renewal.weatherservicev2.service.parser;
+package com.renewal.weatherservicev2.service.parser.json;
 
 import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthResponseVO;
 import lombok.RequiredArgsConstructor;
@@ -7,24 +7,24 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 @Slf4j
-@Service
+@Component
 @RequiredArgsConstructor
 public class LivingAndHealthJsonParser {
 
-    private final CommonJsonParser commonJsonParser;
+    private final CommonJsonParser jsonParser;
 
     public LivingAndHealthResponseVO parseFrom(String data) throws RuntimeException {
         try {
             JSONObject response = parseContentFrom(data);
 
-            String dateTime = commonJsonParser.parseStringFrom(response, "date");
-            String day1 = commonJsonParser.parseStringFrom(response, "today");
-            String day2 = commonJsonParser.parseStringFrom(response, "tomorrow");
-            String day3 = commonJsonParser.parseStringFrom(response, "dayaftertomorrow");
-            String day4 = commonJsonParser.parseStringFrom(response, "twodaysaftertomorrow");
+            String dateTime = jsonParser.parseStringFrom(response, "date");
+            String day1 = jsonParser.parseStringFrom(response, "today");
+            String day2 = jsonParser.parseStringFrom(response, "tomorrow");
+            String day3 = jsonParser.parseStringFrom(response, "dayaftertomorrow");
+            String day4 = jsonParser.parseStringFrom(response, "twodaysaftertomorrow");
 
             return LivingAndHealthResponseVO.builder()
                     .dateTime(dateTime)
@@ -43,12 +43,12 @@ public class LivingAndHealthJsonParser {
     public JSONObject parseContentFrom(String data) throws ParseException {
         JSONParser parser = new JSONParser();
         JSONObject jsonObject = (JSONObject) parser.parse(data);
-        JSONObject response = commonJsonParser.parseObjectFrom(jsonObject, "response");
-        JSONObject body = commonJsonParser.parseObjectFrom(response, "body");
-        JSONObject items = commonJsonParser.parseObjectFrom(body, "items");
-        JSONArray item = commonJsonParser.parseArrayFrom(items, "item");
+        JSONObject response = jsonParser.parseObjectFrom(jsonObject, "response");
+        JSONObject body = jsonParser.parseObjectFrom(response, "body");
+        JSONObject items = jsonParser.parseObjectFrom(body, "items");
+        JSONArray item = jsonParser.parseArrayFrom(items, "item");
 
-        return commonJsonParser.parseObjectFromFirst(item);
+        return jsonParser.parseObjectFromFirst(item);
     }
 }
 
