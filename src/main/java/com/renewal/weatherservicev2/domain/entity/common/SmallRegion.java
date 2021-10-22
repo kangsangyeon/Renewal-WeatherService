@@ -1,5 +1,6 @@
 package com.renewal.weatherservicev2.domain.entity.common;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class SmallRegion extends BaseTime {
 
     @Id
