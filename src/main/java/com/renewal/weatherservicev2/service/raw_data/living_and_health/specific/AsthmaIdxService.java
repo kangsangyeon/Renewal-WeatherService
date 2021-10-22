@@ -1,5 +1,6 @@
 package com.renewal.weatherservicev2.service.raw_data.living_and_health.specific;
 
+import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
 import com.renewal.weatherservicev2.domain.entity.external.living_and_health.AsthmaIdx;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
 import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.AsthmaIdxRequestVO;
@@ -18,12 +19,13 @@ public class AsthmaIdxService {
     private final AsthmaIdxRepository asthmaIdxRepository;
     private final LivingAndHealthConnectionService connectionService;
 
-    public void callAndSaveData(String admCode, String date) {
-        AsthmaIdx asthmaIdx = callData(admCode, date);
+    public void callAndSaveData(String date, BigRegion bigRegion) {
+        AsthmaIdx asthmaIdx = callData(date, bigRegion.getAdmCode());
+        asthmaIdx.joinRegion(bigRegion);
         saveData(asthmaIdx);
     }
 
-    private AsthmaIdx callData(String admCode, String date) {
+    private AsthmaIdx callData(String date, String admCode) {
         OpenApiRequestInterface request = AsthmaIdxRequestVO.builder()
                 .admCode(admCode)
                 .date(date)

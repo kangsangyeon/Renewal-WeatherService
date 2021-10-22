@@ -1,5 +1,6 @@
 package com.renewal.weatherservicev2.service.raw_data.living_and_health.specific;
 
+import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
 import com.renewal.weatherservicev2.domain.entity.external.living_and_health.ColdIdx;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
 import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.ColdIdxRequestVO;
@@ -21,12 +22,13 @@ public class ColdIdxService {
     private final DateTimeUtil dateTimeUtil;
     private final LivingAndHealthConnectionService connectionService;
 
-    public void callAndSaveData(String admCode, String date) throws NonServicePeriodException {
-        ColdIdx coldIdx = callData(admCode, date);
+    public void callAndSaveData(String date, BigRegion bigRegion) throws NonServicePeriodException {
+        ColdIdx coldIdx = callData(date, bigRegion.getAdmCode());
+        coldIdx.joinRegion(bigRegion);
         saveData(coldIdx);
     }
 
-    public ColdIdx callData(String admCode, String date) throws NonServicePeriodException {
+    private ColdIdx callData(String date, String admCode) throws NonServicePeriodException {
 
         if(dateTimeUtil.getMonthYYYYMMDD(date) >= 5 && dateTimeUtil.getMonthYYYYMMDD(date) <= 8) {
             throw new NonServicePeriodException("감기가능지수 자료제공기간인 4-9월이 아닙니다.");

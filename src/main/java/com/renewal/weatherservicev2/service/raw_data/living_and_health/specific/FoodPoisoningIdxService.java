@@ -1,5 +1,6 @@
 package com.renewal.weatherservicev2.service.raw_data.living_and_health.specific;
 
+import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
 import com.renewal.weatherservicev2.domain.entity.external.living_and_health.FoodPoisoningIdx;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
 import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.FoodPoisoningIdxRequestVO;
@@ -18,12 +19,13 @@ public class FoodPoisoningIdxService {
     private final FoodPoisoningIdxRepository foodPoisoningIdxRepository;
     private final LivingAndHealthConnectionService connectionService;
 
-    public void callAndSaveData(String admCode, String date) {
-        FoodPoisoningIdx foodPoisoningIdx = callData(admCode, date);
+    public void callAndSaveData(String date, BigRegion bigRegion) {
+        FoodPoisoningIdx foodPoisoningIdx = callData(date, bigRegion.getAdmCode());
+        foodPoisoningIdx.joinRegion(bigRegion);
         saveData(foodPoisoningIdx);
     }
 
-    public FoodPoisoningIdx callData(String admCode, String date) {
+    private FoodPoisoningIdx callData(String date, String admCode) {
         OpenApiRequestInterface request = FoodPoisoningIdxRequestVO.builder()
                 .admCode(admCode)
                 .date(date)

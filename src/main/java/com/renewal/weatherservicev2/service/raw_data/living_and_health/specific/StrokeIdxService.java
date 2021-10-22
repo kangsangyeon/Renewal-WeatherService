@@ -1,5 +1,6 @@
 package com.renewal.weatherservicev2.service.raw_data.living_and_health.specific;
 
+import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
 import com.renewal.weatherservicev2.domain.entity.external.living_and_health.StrokeIdx;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
 import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.StrokeIdxRequestVO;
@@ -18,12 +19,13 @@ public class StrokeIdxService {
     private final StrokeIdxRepository strokeIdxRepository;
     private final LivingAndHealthConnectionService connectionService;
 
-    public void callAndSaveData(String admCode, String date) {
-        StrokeIdx strokeIdx = callData(admCode, date);
+    public void callAndSaveData(String date, BigRegion bigRegion) {
+        StrokeIdx strokeIdx = callData(date, bigRegion.getAdmCode());
+        strokeIdx.joinRegion(bigRegion);
         saveData(strokeIdx);
     }
 
-    public StrokeIdx callData(String admCode, String date) {
+    public StrokeIdx callData(String date, String admCode) {
         OpenApiRequestInterface request = StrokeIdxRequestVO.builder()
                 .admCode(admCode)
                 .date(date)

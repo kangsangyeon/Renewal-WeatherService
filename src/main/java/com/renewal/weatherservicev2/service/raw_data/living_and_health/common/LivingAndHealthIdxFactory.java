@@ -1,5 +1,6 @@
 package com.renewal.weatherservicev2.service.raw_data.living_and_health.common;
 
+import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
 import com.renewal.weatherservicev2.exception.NonServicePeriodException;
 import com.renewal.weatherservicev2.service.raw_data.living_and_health.specific.*;
 import com.renewal.weatherservicev2.util.OpenApiTypeUtil;
@@ -22,32 +23,32 @@ public class LivingAndHealthIdxFactory {
     private final UvIdxService uvIdxService;
     private final WeedsPollenRiskIdxService weedsPollenRiskIdxService;
 
-    public void getDataFromOpenApiAndSaveLivingAndHealthIdx(String type, String admCode, String date) {
+    public void getDataFromOpenApiAndSaveLivingAndHealthIdx(String type, String date, BigRegion bigRegion) {
         try {
             switch (type.toUpperCase()) {
                 case OpenApiTypeUtil.ASTHMA:
-                    asthmaIdxService.callAndSaveData(admCode, date);
+                    asthmaIdxService.callAndSaveData(date, bigRegion);
                     break;
                 case OpenApiTypeUtil.COLD:
-                    coldIdxService.callAndSaveData(admCode, date);
+                    coldIdxService.callAndSaveData(date, bigRegion);
                     break;
                 case OpenApiTypeUtil.FOOD_POISONING:
-                    foodPoisoningIdxService.callAndSaveData(admCode, date);
+                    foodPoisoningIdxService.callAndSaveData(date, bigRegion);
                     break;
                 case OpenApiTypeUtil.OAK_POLLEN_RISK:
-                    oakPollenIdxService.callAndSaveData(admCode, date);
+                    oakPollenIdxService.callAndSaveData(date, bigRegion);
                     break;
                 case OpenApiTypeUtil.PINE_POLLEN_RISK:
-                    pinePollenIdxService.callAndSaveData(admCode, date);
+                    pinePollenIdxService.callAndSaveData(date, bigRegion);
                     break;
                 case OpenApiTypeUtil.STROKE:
-                    strokeIdxService.callAndSaveData(admCode, date);
+                    strokeIdxService.callAndSaveData(date, bigRegion);
                     break;
                 case OpenApiTypeUtil.UV:
-                    uvIdxService.callAndSaveData(admCode, date);
+                    uvIdxService.callAndSaveData(date, bigRegion);
                     break;
                 case OpenApiTypeUtil.WEEDS_POLLEN_RISK:
-                    weedsPollenRiskIdxService.callAndSaveData(admCode, date);
+                    weedsPollenRiskIdxService.callAndSaveData(date, bigRegion);
                     break;
                 default:
                     throw new IllegalArgumentException();

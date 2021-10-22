@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BigRegionRepository extends JpaRepository<BigRegion, Long> {
     BigRegion findByName(String name);
+
+    BigRegion findByAdmCode(String admCode);
 }

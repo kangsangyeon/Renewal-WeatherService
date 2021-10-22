@@ -1,5 +1,6 @@
 package com.renewal.weatherservicev2.service.raw_data.living_and_health.specific;
 
+import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
 import com.renewal.weatherservicev2.domain.entity.external.living_and_health.PinePollenRiskIdx;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
 import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.PinePollenRiskIdxRequestVO;
@@ -21,12 +22,13 @@ public class PinePollenIdxService {
     private final DateTimeUtil dateTimeUtil;
     private final LivingAndHealthConnectionService connectionService;
 
-    public void callAndSaveData(String admCode, String date) throws NonServicePeriodException {
-        PinePollenRiskIdx pinePollenRiskIdx = callData(admCode, date);
+    public void callAndSaveData(String date, BigRegion bigRegion) throws NonServicePeriodException {
+        PinePollenRiskIdx pinePollenRiskIdx = callData(date, bigRegion.getAdmCode());
+        pinePollenRiskIdx.joinRegion(bigRegion);
         saveData(pinePollenRiskIdx);
     }
 
-    public PinePollenRiskIdx callData(String admCode, String date) throws NonServicePeriodException {
+    private PinePollenRiskIdx callData(String date, String admCode) throws NonServicePeriodException {
 
         if(dateTimeUtil.getMonthYYYYMMDD(date) <= 3 || dateTimeUtil.getMonthYYYYMMDD(date) >= 7) {
             throw new NonServicePeriodException("꽃가루농도위험지수(소나무) 자료제공기간인 4-6월이 아닙니다.");

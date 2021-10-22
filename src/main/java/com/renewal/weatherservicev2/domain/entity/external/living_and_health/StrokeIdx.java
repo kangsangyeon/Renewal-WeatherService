@@ -1,6 +1,7 @@
 package com.renewal.weatherservicev2.domain.entity.external.living_and_health;
 
 import com.renewal.weatherservicev2.domain.entity.common.BaseTime;
+import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
 import com.renewal.weatherservicev2.domain.entity.external.abstr.LivingAndHealthIdx;
 import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthResponseVO;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,10 @@ public class StrokeIdx extends BaseTime implements LivingAndHealthIdx {
     @Column
     private String dateTime;
 
+    @ManyToOne
+    @JoinColumn(name = "big_region_id")
+    private BigRegion bigRegion;
+
     @Column
     private String strokeIdxDay1;
 
@@ -45,5 +50,9 @@ public class StrokeIdx extends BaseTime implements LivingAndHealthIdx {
                 .strokeIdxDay3(response.getDay3())
                 .strokeIdxDay4(response.getDay4())
                 .build();
+    }
+
+    public void joinRegion(BigRegion region) {
+        this.bigRegion = region;
     }
 }
