@@ -1,28 +1,31 @@
 package com.renewal.weatherservicev2.util;
 
+import org.springframework.stereotype.Component;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+@Component
 public class DateTimeUtil {
 
     // String result
-    public static String getNowYYYYMMDD() {
+    public String getNowYYYYMMDD() {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
     }
 
-    public static String getYesterdayYYYYMMDD() {
+    public String getYesterdayYYYYMMDD() {
         return LocalDateTime.now().minusDays(1).format(DateTimeFormatter.ofPattern("yyyyMMdd"));
     }
 
     // LocalDate result
-    public static LocalDate ParserYYYYMMDD(String YYYYMMDD) {
+    public LocalDate ParserYYYYMMDD(String YYYYMMDD) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         return LocalDate.parse(YYYYMMDD, formatter);
     }
 
     // etc. result
-    public static int getMonthYYYYMMDD(String YYYYMMDD) {
+    public int getMonthYYYYMMDD(String YYYYMMDD) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         LocalDate localDate = LocalDate.parse(YYYYMMDD, formatter);
         return localDate.getMonthValue();

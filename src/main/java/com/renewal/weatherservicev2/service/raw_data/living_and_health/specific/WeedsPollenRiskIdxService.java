@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 public class WeedsPollenRiskIdxService {
 
     private final WeedsPollenRiskIdxRepository weedsPollenRiskIdxRepository;
+    private final DateTimeUtil dateTimeUtil;
     private final LivingAndHealthConnectionService connectionService;
 
     public void callAndSaveData(String admCode, String date) throws NonServicePeriodException {
@@ -27,7 +28,7 @@ public class WeedsPollenRiskIdxService {
 
     public WeedsPollenRiskIdx callData(String admCode, String date) throws NonServicePeriodException {
 
-        if(DateTimeUtil.getMonthYYYYMMDD(date) <= 7 || DateTimeUtil.getMonthYYYYMMDD(date) >= 11) {
+        if(dateTimeUtil.getMonthYYYYMMDD(date) <= 7 || dateTimeUtil.getMonthYYYYMMDD(date) >= 11) {
             throw new NonServicePeriodException("꽃가루농도위험지수(잡초류) 자료제공기간인 8-10월이 아닙니다.");
         }
 

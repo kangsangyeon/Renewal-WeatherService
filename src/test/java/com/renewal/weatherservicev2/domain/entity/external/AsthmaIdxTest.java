@@ -16,6 +16,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class AsthmaIdxTest {
 
     @Autowired
+    private DateTimeUtil dateTimeUtil;
+
+    @Autowired
     LivingAndHealthConnectionService connectionService;
 
     @Test
@@ -23,7 +26,7 @@ class AsthmaIdxTest {
 
         OpenApiRequestInterface request = AsthmaIdxRequestVO.builder()
                 .admCode("1100000000")
-                .date(DateTimeUtil.getYesterdayYYYYMMDD())
+                .date(dateTimeUtil.getYesterdayYYYYMMDD())
                 .build();
 
         LivingAndHealthResponseVO response = connectionService.connectAndGetParsedResponse(request);

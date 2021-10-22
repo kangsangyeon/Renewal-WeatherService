@@ -10,6 +10,9 @@ import org.springframework.test.annotation.Rollback;
 class AsthmaIdxServiceTest {
 
     @Autowired
+    private DateTimeUtil dateTimeUtil;
+
+    @Autowired
     private AsthmaIdxService asthmaIdxService;
 
     @Test
@@ -17,7 +20,7 @@ class AsthmaIdxServiceTest {
     void getAndSaveData() {
 
         String admCode = "1100000000";
-        String date = DateTimeUtil.getYesterdayYYYYMMDD();
+        String date = dateTimeUtil.getYesterdayYYYYMMDD();
 
         asthmaIdxService.callAndSaveData(admCode, date);
     }

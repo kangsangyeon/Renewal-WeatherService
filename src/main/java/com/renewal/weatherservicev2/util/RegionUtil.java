@@ -1,8 +1,10 @@
 package com.renewal.weatherservicev2.util;
 
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RegionUtil {
 
-    public static ClassPathResource csvResource = new ClassPathResource("data/region.csv");
+    public ClassPathResource csvResource = new ClassPathResource("data/region.csv");
 }

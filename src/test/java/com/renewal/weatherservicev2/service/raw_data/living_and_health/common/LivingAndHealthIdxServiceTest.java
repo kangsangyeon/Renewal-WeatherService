@@ -16,6 +16,9 @@ import java.net.URL;
 class LivingAndHealthIdxServiceTest {
 
     @Autowired
+    private DateTimeUtil dateTimeUtil;
+
+    @Autowired
     private ApiConnection apiConnection;
 
     @Autowired
@@ -26,7 +29,7 @@ class LivingAndHealthIdxServiceTest {
 
         OpenApiRequestInterface request = UVIdxRequestVO.builder()
                 .admCode("1100000000")
-                .date(DateTimeUtil.getYesterdayYYYYMMDD())
+                .date(dateTimeUtil.getYesterdayYYYYMMDD())
                 .build();
 
         URL url = request.makeUrl();

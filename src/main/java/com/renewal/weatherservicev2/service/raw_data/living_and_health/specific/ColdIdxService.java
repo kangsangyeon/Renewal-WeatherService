@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 public class ColdIdxService {
 
     private final ColdIdxRepository coldIdxRepository;
+    private final DateTimeUtil dateTimeUtil;
     private final LivingAndHealthConnectionService connectionService;
 
     public void callAndSaveData(String admCode, String date) throws NonServicePeriodException {
@@ -27,7 +28,7 @@ public class ColdIdxService {
 
     public ColdIdx callData(String admCode, String date) throws NonServicePeriodException {
 
-        if(DateTimeUtil.getMonthYYYYMMDD(date) >= 5 && DateTimeUtil.getMonthYYYYMMDD(date) <= 8) {
+        if(dateTimeUtil.getMonthYYYYMMDD(date) >= 5 && dateTimeUtil.getMonthYYYYMMDD(date) <= 8) {
             throw new NonServicePeriodException("감기가능지수 자료제공기간인 4-9월이 아닙니다.");
         }
 

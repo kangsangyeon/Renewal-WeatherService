@@ -15,11 +15,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RegionCsvParser {
 
+    private final RegionUtil regionUtil;
     private final CommonCsvParser csvParser;
 
     public List<RegionRequestVO> parseFromCsv() throws IOException {
         CsvSchema schema = getSchema();
-        return csvParser.parseObjectFrom(RegionUtil.csvResource.getInputStream(), schema, RegionRequestVO.class);
+        return csvParser.parseObjectFrom(regionUtil.csvResource.getInputStream(), schema, RegionRequestVO.class);
     }
 
     private CsvSchema getSchema() {

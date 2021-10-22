@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 public class OakPollenIdxService {
 
     private final OakPollenRiskIdxRepository oakPollenRiskIdxRepository;
+    private final DateTimeUtil dateTimeUtil;
     private final LivingAndHealthConnectionService connectionService;
 
     public void callAndSaveData(String admCode, String date) throws NonServicePeriodException {
@@ -27,7 +28,7 @@ public class OakPollenIdxService {
 
     public OakPollenRiskIdx callData(String admCode, String date) throws NonServicePeriodException {
 
-        if(DateTimeUtil.getMonthYYYYMMDD(date) <= 3 || DateTimeUtil.getMonthYYYYMMDD(date) >= 7) {
+        if(dateTimeUtil.getMonthYYYYMMDD(date) <= 3 || dateTimeUtil.getMonthYYYYMMDD(date) >= 7) {
             throw new NonServicePeriodException("꽃가루농도위험지수(참나무) 자료제공기간인 4-6월이 아닙니다.");
         }
 
