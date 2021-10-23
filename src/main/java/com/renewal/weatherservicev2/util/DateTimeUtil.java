@@ -9,6 +9,8 @@ import java.time.format.DateTimeFormatter;
 @Component
 public class DateTimeUtil {
 
+    public final static String ASIA_SEOUL = "Asia/Seoul";
+
     // String result
     public String getNowYYYYMMDD() {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));

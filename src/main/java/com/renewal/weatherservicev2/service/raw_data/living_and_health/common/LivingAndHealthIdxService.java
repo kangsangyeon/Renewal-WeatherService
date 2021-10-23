@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 
@@ -15,15 +16,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class LivingAndHealthIdxService {
 
-    private final BigRegionRepository bigRegionRepository;
     private final LivingAndHealthIdxFactory factory;
 
-    public void getDataFromOpenApiAndSaveByRegion(String admCode, String date) {
-        List<String> apiTypes = OpenApiTypeUtil.livingAndHealthOpenApiTypeList;
-        BigRegion bigRegion = bigRegionRepository.findByAdmCode(admCode);
+    @Transactional
+    public void callDataFromOpenApiAndSaveByRegion(String date, BigRegion bigRegion) {
+        log.info("## start calling {} region open api data!", bigRegion.getId());
+        List<String> types = OpenApiTypeUtil.livingAndHealthOpenApiTypeList;
 
-        for (String type : apiTypes) {
-            factory.getDataFromOpenApiAndSaveLivingAndHealthIdx(type, date, bigRegion);
+        for (String type : types) {
+            factory.callDataFromOpenApiAndSaveLivingAndHealthIdx(type, date, bigRegion);
         }
     }
 }

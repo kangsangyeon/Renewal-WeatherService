@@ -1,4 +1,12 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: info
+
 spring:
+
   h2:
     console:
       enabled: true
@@ -14,3 +22,22 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+
+  task:
+    execution:
+      pool:
+        core-size: 10
+        max-size: 10
+      thread-name-prefix: WEATHER-TASK-
+
+    scheduling:
+      pool:
+        core-size: 10
+      thread-name-prefix: WEATHER-SCHEDULER
+
+scheduling:
+  living-and-health-idx-scheduler : 0 34 12 * * ?
+
+app-conf:
+  api-key: hisooyeon@!

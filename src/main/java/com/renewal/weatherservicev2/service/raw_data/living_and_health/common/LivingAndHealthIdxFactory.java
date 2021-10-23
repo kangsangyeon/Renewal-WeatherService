@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class LivingAndHealthIdxFactory {
 
-    private OpenApiTypeUtil openApiTypeUtil;
     private final AsthmaIdxService asthmaIdxService;
     private final ColdIdxService coldIdxService;
     private final FoodPoisoningIdxService foodPoisoningIdxService;
@@ -23,7 +22,7 @@ public class LivingAndHealthIdxFactory {
     private final UvIdxService uvIdxService;
     private final WeedsPollenRiskIdxService weedsPollenRiskIdxService;
 
-    public void getDataFromOpenApiAndSaveLivingAndHealthIdx(String type, String date, BigRegion bigRegion) {
+    public void callDataFromOpenApiAndSaveLivingAndHealthIdx(String type, String date, BigRegion bigRegion) {
         try {
             switch (type.toUpperCase()) {
                 case OpenApiTypeUtil.ASTHMA:

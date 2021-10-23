@@ -8,6 +8,7 @@ import com.renewal.weatherservicev2.repository.common.SmallRegionRepository;
 import com.renewal.weatherservicev2.service.parser.csv.RegionCsvParser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -15,9 +16,9 @@ import java.io.IOException;
 import java.util.List;
 
 @Slf4j
-@Service
+@Component
 @RequiredArgsConstructor
-public class RegionInitializeService {
+public class RegionInitializer {
 
     private final BigRegionRepository bigRegionRepository;
     private final SmallRegionRepository smallRegionRepository;

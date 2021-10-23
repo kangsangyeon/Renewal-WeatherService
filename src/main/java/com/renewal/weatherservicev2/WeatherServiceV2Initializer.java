@@ -1,6 +1,6 @@
 package com.renewal.weatherservicev2;
 
-import com.renewal.weatherservicev2.service.raw_data.region.RegionInitializeService;
+import com.renewal.weatherservicev2.service.raw_data.region.RegionInitializer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
@@ -12,11 +12,12 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class WeatherServiceV2Initializer implements ApplicationRunner {
 
-    private final RegionInitializeService region;
+    private final RegionInitializer region;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         log.info("## WeatherServiceV2Application started! start initialize.");
+
         region.initialize();
     }
 }
