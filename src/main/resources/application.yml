@@ -37,7 +37,7 @@ spring:
       thread-name-prefix: WEATHER-SCHEDULER
 
 scheduling:
-  living-and-health-idx-scheduler : 0 34 12 * * ?
+  living-and-health-idx-scheduler : 0 30 6 * * ?
 
 app-conf:
   api-key: hisooyeon@!
