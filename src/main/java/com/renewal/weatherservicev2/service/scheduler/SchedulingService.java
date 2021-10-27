@@ -1,6 +1,5 @@
 package com.renewal.weatherservicev2.service.scheduler;
 
-import com.renewal.weatherservicev2.config.SchedulingConfig;
 import com.renewal.weatherservicev2.service.raw_data.living_and_health.common.LivingAndHealthIdxBatch;
 import com.renewal.weatherservicev2.util.DateTimeUtil;
 import lombok.RequiredArgsConstructor;

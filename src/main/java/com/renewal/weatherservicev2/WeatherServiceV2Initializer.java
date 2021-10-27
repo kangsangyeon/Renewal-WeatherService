@@ -12,12 +12,11 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class WeatherServiceV2Initializer implements ApplicationRunner {
 
-    private final RegionInitializer region;
+    private final RegionInitializer regionInitializer;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         log.info("## WeatherServiceV2Application started! start initialize.");
-
-        region.initialize();
+        regionInitializer.initialize();
     }
 }
