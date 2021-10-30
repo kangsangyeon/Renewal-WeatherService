@@ -24,7 +24,7 @@ public class WeatherReq implements OpenApiRequestInterface {
     public URL makeUrl() {
         try {
             String url = OpenApiURL.OPEN_API_URL_FOR_WEATHER
-                    + "?lat=" + this.getLatitude() + "&lon=" + this.getLatitude()
+                    + "?lat=" + this.getLatitude() + "&lon=" + this.getLongitude()
                     + "&exclude=current,minutely"
                     + "&appid=" + OpenApiURL.URL_KEY_FOR_OPEN_WEATHER_MAP_ORG
                     + "&units=metric";

@@ -1,6 +1,7 @@
 package com.renewal.weatherservicev2.service.connection;
 
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
+import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiResponseInterface;
 import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthRes;
 import com.renewal.weatherservicev2.service.parser.json.LivingAndHealthJsonParser;
 import lombok.RequiredArgsConstructor;

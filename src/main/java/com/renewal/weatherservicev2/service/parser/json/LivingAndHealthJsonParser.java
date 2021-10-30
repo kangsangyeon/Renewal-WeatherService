@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Component;
 
@@ -41,14 +40,13 @@ public class LivingAndHealthJsonParser {
     }
 
     public JSONObject parseContentFrom(String data) throws ParseException {
-        JSONParser parser = new JSONParser();
-        JSONObject jsonObject = (JSONObject) parser.parse(data);
+        JSONObject jsonObject = (JSONObject) CommonJsonParser.jsonParser.parse(data);
         JSONObject response = jsonParser.parseObjectFrom(jsonObject, "response");
         JSONObject body = jsonParser.parseObjectFrom(response, "body");
         JSONObject items = jsonParser.parseObjectFrom(body, "items");
         JSONArray item = jsonParser.parseArrayFrom(items, "item");
 
-        return jsonParser.parseObjectFromFirst(item);
+        return jsonParser.parseObjectFrom(item, 0);
     }
 }
 

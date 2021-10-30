@@ -17,6 +17,6 @@ public class WeatherServiceV2Initializer implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         log.info("## WeatherServiceV2Application started! start initialize.");
-        regionInitializer.initialize();
+//        regionInitializer.initialize();
     }
 }

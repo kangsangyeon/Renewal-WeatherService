@@ -1,8 +1,6 @@
-package com.renewal.weatherservicev2.service.parser;
+package com.renewal.weatherservicev2.service.parser.json;
 
 import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthRes;
-import com.renewal.weatherservicev2.service.parser.json.CommonJsonParser;
-import com.renewal.weatherservicev2.service.parser.json.LivingAndHealthJsonParser;
 import org.json.simple.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +18,7 @@ class LivingAndHealthJsonParserTest {
     private LivingAndHealthJsonParser livingAndHealthJsonParser;
 
     @Test
-    void parseFrom() {
+    void parseLivingAndHealthIdxFromJso() {
 
         String data = "{\"response\":{\"header\":{\"resultCode\":\"00\",\"resultMsg\":\"NORMAL_SERVICE\"},\"body\":{\"dataType\":\"JSON\",\"items\":{\"item\":[{\"code\":\"A07_1\",\"areaNo\":\"1100000000\",\"date\":\"2021101606\",\"today\":\"3\",\"tomorrow\":\"4\",\"dayaftertomorrow\":\"2\",\"twodaysaftertomorrow\":\"\"}]},\"pageNo\":1,\"numOfRows\":10,\"totalCount\":1}}}\n";
 

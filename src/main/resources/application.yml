@@ -23,6 +23,9 @@ spring:
       ddl-auto: update
     show-sql: true
 
+  redis:
+    host: localhost
+    port: 6379
 
   task:
     execution:
@@ -41,3 +44,4 @@ scheduling:
 
 app-conf:
   api-key: hisooyeon@!
+  data-go-kr-key: zhvzvF5vNC7ufu7H%2BQnPJtEQbF2QdNZ0qdvZWLeR%2BnL0UwxwnCgrkmxKB9oqCXVSJp95YTliRHwzxvGdrvjetg%3D%3D
