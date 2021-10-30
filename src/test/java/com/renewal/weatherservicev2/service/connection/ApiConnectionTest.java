@@ -1,7 +1,8 @@
 package com.renewal.weatherservicev2.service.connection;
 
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
-import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.UVIdxRequestVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.UVIdxReq;
+import com.renewal.weatherservicev2.domain.vo.openapi.request.weather.WeatherReq;
 import com.renewal.weatherservicev2.util.DateTimeUtil;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,7 @@ class ApiConnectionTest {
     @DisplayName("생활기상지수 API 연결 테스트")
     void connectLivingWeatherIdxApi() {
 
-        OpenApiRequestInterface request = UVIdxRequestVO.builder()
+        OpenApiRequestInterface request = UVIdxReq.builder()
                 .admCode("1100000000")
                 .date(dateTimeUtil.getYesterdayYYYYMMDD())
                 .build();
@@ -36,10 +37,13 @@ class ApiConnectionTest {
     @Test
     @DisplayName("기상정보 API 연결 테스트")
     void connectWeatherApi() throws MalformedURLException {
-        String lat = "37.5638";
-        String lon = "126.9084";
-        String urlStr = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,current&appid=0479c3d98eb03e0a92d9a69ce53b631f&units=metric";
-        URL url = new URL(urlStr);
+
+        OpenApiRequestInterface request = WeatherReq.builder()
+                .latitude("37.5638")
+                .longitude("126.9084")
+                .build();
+
+        URL url = request.makeUrl();
         System.out.println(apiConnection.connect(url));
     }
 }
