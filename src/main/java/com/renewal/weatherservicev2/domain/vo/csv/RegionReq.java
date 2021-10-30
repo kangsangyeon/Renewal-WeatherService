@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class RegionRequestVO {
+public class RegionReq {
 
     private String admCode;
     private String bigRegion;

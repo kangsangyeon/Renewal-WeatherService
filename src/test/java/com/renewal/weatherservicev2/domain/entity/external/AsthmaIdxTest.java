@@ -2,8 +2,8 @@ package com.renewal.weatherservicev2.domain.entity.external;
 
 import com.renewal.weatherservicev2.domain.entity.external.living_and_health.AsthmaIdx;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
-import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.AsthmaIdxRequestVO;
-import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthResponseVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.AsthmaIdxReq;
+import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthRes;
 import com.renewal.weatherservicev2.service.connection.LivingAndHealthConnectionService;
 import com.renewal.weatherservicev2.util.DateTimeUtil;
 import org.junit.jupiter.api.Test;
@@ -24,12 +24,12 @@ class AsthmaIdxTest {
     @Test
     void from() {
 
-        OpenApiRequestInterface request = AsthmaIdxRequestVO.builder()
+        OpenApiRequestInterface request = AsthmaIdxReq.builder()
                 .admCode("1100000000")
                 .date(dateTimeUtil.getYesterdayYYYYMMDD())
                 .build();
 
-        LivingAndHealthResponseVO response = connectionService.connectAndGetParsedResponse(request);
+        LivingAndHealthRes response = connectionService.connectAndGetParsedResponse(request);
         AsthmaIdx asthmaIdx =  AsthmaIdx.builder()
                 .dateTime(response.getDateTime())
                 .asthmaIdxDay1(response.getDay1())

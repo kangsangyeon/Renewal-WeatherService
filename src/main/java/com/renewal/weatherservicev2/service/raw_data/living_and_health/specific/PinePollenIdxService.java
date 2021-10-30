@@ -3,8 +3,8 @@ package com.renewal.weatherservicev2.service.raw_data.living_and_health.specific
 import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
 import com.renewal.weatherservicev2.domain.entity.external.living_and_health.PinePollenRiskIdx;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
-import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.PinePollenRiskIdxRequestVO;
-import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthResponseVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.PinePollenRiskIdxReq;
+import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthRes;
 import com.renewal.weatherservicev2.exception.NonServicePeriodException;
 import com.renewal.weatherservicev2.repository.living_and_health.PinePollenRiskIdxRepository;
 import com.renewal.weatherservicev2.service.connection.LivingAndHealthConnectionService;
@@ -34,12 +34,12 @@ public class PinePollenIdxService {
             throw new NonServicePeriodException("꽃가루농도위험지수(소나무) 자료제공기간인 4-6월이 아닙니다.");
         }
 
-        OpenApiRequestInterface request = PinePollenRiskIdxRequestVO.builder()
+        OpenApiRequestInterface request = PinePollenRiskIdxReq.builder()
                 .admCode(admCode)
                 .date(date)
                 .build();
 
-        LivingAndHealthResponseVO response = connectionService.connectAndGetParsedResponse(request);
+        LivingAndHealthRes response = connectionService.connectAndGetParsedResponse(request);
         PinePollenRiskIdx data = new PinePollenRiskIdx();
         return data.from(response);
     }

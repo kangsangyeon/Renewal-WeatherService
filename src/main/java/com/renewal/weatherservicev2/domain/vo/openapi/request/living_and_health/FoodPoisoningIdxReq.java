@@ -1,6 +1,6 @@
 package com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health;
 
-import com.renewal.weatherservicev2.domain.vo.openapi.abstr.LivingAndHealthIdxRequestVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.abstr.LivingAndHealthIdxReq;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
 import com.renewal.weatherservicev2.util.OpenApiURL;
 import lombok.AllArgsConstructor;
@@ -21,7 +21,7 @@ import java.net.URL;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodPoisoningIdxRequestVO extends LivingAndHealthIdxRequestVO implements OpenApiRequestInterface {
+public class FoodPoisoningIdxReq extends LivingAndHealthIdxReq implements OpenApiRequestInterface {
 
     private String admCode;      // 행정동코드
     private String date;         // YYYYMMDD

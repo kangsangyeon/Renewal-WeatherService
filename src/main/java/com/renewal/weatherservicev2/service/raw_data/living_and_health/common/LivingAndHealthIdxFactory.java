@@ -22,7 +22,7 @@ public class LivingAndHealthIdxFactory {
     private final UvIdxService uvIdxService;
     private final WeedsPollenRiskIdxService weedsPollenRiskIdxService;
 
-    public void callDataFromOpenApiAndSaveLivingAndHealthIdx(String type, String date, BigRegion bigRegion) {
+    public void callDataFromOpenApiAndSave(String type, String date, BigRegion bigRegion) {
         try {
             switch (type.toUpperCase()) {
                 case OpenApiTypeUtil.ASTHMA:

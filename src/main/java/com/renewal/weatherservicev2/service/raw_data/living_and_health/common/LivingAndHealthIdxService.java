@@ -1,7 +1,6 @@
 package com.renewal.weatherservicev2.service.raw_data.living_and_health.common;
 
 import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
-import com.renewal.weatherservicev2.repository.common.BigRegionRepository;
 import com.renewal.weatherservicev2.util.OpenApiTypeUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class LivingAndHealthIdxService {
 
-    private final LivingAndHealthIdxFactory factory;
+    private final LivingAndHealthIdxFactory livingAndHealthIdxFactory;
 
     @Transactional
     public void callDataFromOpenApiAndSaveByRegion(String date, BigRegion bigRegion) {
@@ -24,7 +23,7 @@ public class LivingAndHealthIdxService {
         List<String> types = OpenApiTypeUtil.livingAndHealthOpenApiTypeList;
 
         for (String type : types) {
-            factory.callDataFromOpenApiAndSaveLivingAndHealthIdx(type, date, bigRegion);
+            livingAndHealthIdxFactory.callDataFromOpenApiAndSave(type, date, bigRegion);
         }
     }
 }

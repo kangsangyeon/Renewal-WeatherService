@@ -1,6 +1,6 @@
 package com.renewal.weatherservicev2.service.parser.json;
 
-import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthResponseVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthRes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONArray;
@@ -16,7 +16,7 @@ public class LivingAndHealthJsonParser {
 
     private final CommonJsonParser jsonParser;
 
-    public LivingAndHealthResponseVO parseFrom(String data) throws RuntimeException {
+    public LivingAndHealthRes parseFrom(String data) throws RuntimeException {
         try {
             JSONObject response = parseContentFrom(data);
 
@@ -26,7 +26,7 @@ public class LivingAndHealthJsonParser {
             String day3 = jsonParser.parseStringFrom(response, "dayaftertomorrow");
             String day4 = jsonParser.parseStringFrom(response, "twodaysaftertomorrow");
 
-            return LivingAndHealthResponseVO.builder()
+            return LivingAndHealthRes.builder()
                     .dateTime(dateTime)
                     .day1(day1)
                     .day2(day2)

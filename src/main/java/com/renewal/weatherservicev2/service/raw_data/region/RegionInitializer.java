@@ -2,14 +2,13 @@ package com.renewal.weatherservicev2.service.raw_data.region;
 
 import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
 import com.renewal.weatherservicev2.domain.entity.common.SmallRegion;
-import com.renewal.weatherservicev2.domain.vo.csv.RegionRequestVO;
+import com.renewal.weatherservicev2.domain.vo.csv.RegionReq;
 import com.renewal.weatherservicev2.repository.common.BigRegionRepository;
 import com.renewal.weatherservicev2.repository.common.SmallRegionRepository;
 import com.renewal.weatherservicev2.service.parser.csv.RegionCsvParser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.io.IOException;
@@ -40,10 +39,10 @@ public class RegionInitializer {
             bigRegionRepository.deleteAll();
             smallRegionRepository.deleteAll();
 
-            List<RegionRequestVO> regionList = regionCsvParser.parseFromCsv();
+            List<RegionReq> regionList = regionCsvParser.parseFromCsv();
             BigRegion lastBigRegion = null;
 
-            for(RegionRequestVO region : regionList) {
+            for(RegionReq region : regionList) {
                 if(region.isBigRegion()) {
                     BigRegion bigRegion = region.createBigRegion();
                     lastBigRegion = bigRegion;

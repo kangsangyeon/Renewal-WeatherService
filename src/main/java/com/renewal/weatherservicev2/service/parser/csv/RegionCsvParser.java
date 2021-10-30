@@ -1,7 +1,7 @@
 package com.renewal.weatherservicev2.service.parser.csv;
 
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
-import com.renewal.weatherservicev2.domain.vo.csv.RegionRequestVO;
+import com.renewal.weatherservicev2.domain.vo.csv.RegionReq;
 import com.renewal.weatherservicev2.util.RegionUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,9 +18,9 @@ public class RegionCsvParser {
     private final RegionUtil regionUtil;
     private final CommonCsvParser csvParser;
 
-    public List<RegionRequestVO> parseFromCsv() throws IOException {
+    public List<RegionReq> parseFromCsv() throws IOException {
         CsvSchema schema = getSchema();
-        return csvParser.parseObjectFrom(regionUtil.csvResource.getInputStream(), schema, RegionRequestVO.class);
+        return csvParser.parseObjectFrom(regionUtil.csvResource.getInputStream(), schema, RegionReq.class);
     }
 
     private CsvSchema getSchema() {

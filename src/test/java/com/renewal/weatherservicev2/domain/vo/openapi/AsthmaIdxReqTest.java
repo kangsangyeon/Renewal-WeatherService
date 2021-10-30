@@ -1,6 +1,6 @@
 package com.renewal.weatherservicev2.domain.vo.openapi;
 
-import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.AsthmaIdxRequestVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.request.living_and_health.AsthmaIdxReq;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -8,13 +8,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class AsthmaIdxRequestVOTest {
+class AsthmaIdxReqTest {
 
     @Test
     @DisplayName("URL 생성 확인")
     void makeUrl() {
 
-        AsthmaIdxRequestVO request = AsthmaIdxRequestVO.builder()
+        AsthmaIdxReq request = AsthmaIdxReq.builder()
                 .admCode("1100000000")
                 .date("20210922")
                 .build();

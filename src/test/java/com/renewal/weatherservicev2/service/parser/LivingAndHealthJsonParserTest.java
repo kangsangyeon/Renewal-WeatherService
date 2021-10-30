@@ -1,6 +1,6 @@
 package com.renewal.weatherservicev2.service.parser;
 
-import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthResponseVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthRes;
 import com.renewal.weatherservicev2.service.parser.json.CommonJsonParser;
 import com.renewal.weatherservicev2.service.parser.json.LivingAndHealthJsonParser;
 import org.json.simple.JSONObject;
@@ -33,7 +33,7 @@ class LivingAndHealthJsonParserTest {
             String day3 = commonJsonParser.parseStringFrom(response, "dayaftertomorrow");
             String day4 = commonJsonParser.parseStringFrom(response, "twodaysaftertomorrow");
 
-            LivingAndHealthResponseVO result = LivingAndHealthResponseVO.builder()
+            LivingAndHealthRes result = LivingAndHealthRes.builder()
                     .dateTime(dateTime)
                     .day1(day1)
                     .day2(day2)

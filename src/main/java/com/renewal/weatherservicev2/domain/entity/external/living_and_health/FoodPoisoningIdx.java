@@ -3,7 +3,7 @@ package com.renewal.weatherservicev2.domain.entity.external.living_and_health;
 import com.renewal.weatherservicev2.domain.entity.common.BaseTime;
 import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
 import com.renewal.weatherservicev2.domain.entity.external.abstr.LivingAndHealthIdx;
-import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthResponseVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthRes;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -42,7 +42,7 @@ public class FoodPoisoningIdx extends BaseTime implements LivingAndHealthIdx {
     @Column
     private String foodPoisoningIdxDay4;
 
-    public FoodPoisoningIdx from(LivingAndHealthResponseVO response) {
+    public FoodPoisoningIdx from(LivingAndHealthRes response) {
         return FoodPoisoningIdx.builder()
                 .dateTime(response.getDateTime())
                 .foodPoisoningIdxDay1(response.getDay1())

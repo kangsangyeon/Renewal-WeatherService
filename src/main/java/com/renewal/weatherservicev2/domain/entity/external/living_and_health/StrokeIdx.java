@@ -3,7 +3,7 @@ package com.renewal.weatherservicev2.domain.entity.external.living_and_health;
 import com.renewal.weatherservicev2.domain.entity.common.BaseTime;
 import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
 import com.renewal.weatherservicev2.domain.entity.external.abstr.LivingAndHealthIdx;
-import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthResponseVO;
+import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthRes;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -42,7 +42,7 @@ public class StrokeIdx extends BaseTime implements LivingAndHealthIdx {
     @Column
     private String strokeIdxDay4;
 
-    public StrokeIdx from(LivingAndHealthResponseVO response) {
+    public StrokeIdx from(LivingAndHealthRes response) {
         return StrokeIdx.builder()
                 .dateTime(response.getDateTime())
                 .strokeIdxDay1(response.getDay1())

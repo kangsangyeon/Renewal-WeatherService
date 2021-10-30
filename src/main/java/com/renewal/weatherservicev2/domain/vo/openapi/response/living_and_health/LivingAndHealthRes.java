@@ -8,7 +8,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class LivingAndHealthResponseVO implements OpenApiResponseInterface{
+public class LivingAndHealthRes implements OpenApiResponseInterface{
 
     private String dateTime;
     private String day1;
