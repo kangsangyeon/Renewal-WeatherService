@@ -31,24 +31,24 @@ public class WeedsPollenRiskIdx extends BaseTime implements LivingAndHealthIdx {
     private BigRegion bigRegion;
 
     @Column
-    private String weedsPollenRiskIdxDay1;
+    private String day1;
 
     @Column
-    private String weedsPollenRiskIdxDay2;
+    private String day2;
 
     @Column
-    private String weedsPollenRiskIdxDay3;
+    private String day3;
 
     @Column
-    private String weedsPollenRiskIdxDay4;
+    private String day4;
 
     public WeedsPollenRiskIdx from(LivingAndHealthRes response) {
         return WeedsPollenRiskIdx.builder()
                 .dateTime(response.getDateTime())
-                .weedsPollenRiskIdxDay1(response.getDay1())
-                .weedsPollenRiskIdxDay2(response.getDay2())
-                .weedsPollenRiskIdxDay3(response.getDay3())
-                .weedsPollenRiskIdxDay4(response.getDay4())
+                .day1(response.getDay1())
+                .day2(response.getDay2())
+                .day3(response.getDay3())
+                .day4(response.getDay4())
                 .build();
     }
 

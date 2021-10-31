@@ -31,24 +31,24 @@ public class UvIdx extends BaseTime implements LivingAndHealthIdx {
     private BigRegion bigRegion;
 
     @Column
-    private String uvIdxDay1;
+    private String day1;
 
     @Column
-    private String uvIdxDay2;
+    private String day2;
 
     @Column
-    private String uvIdxDay3;
+    private String day3;
 
     @Column
-    private String uvIdxDay4;
+    private String day4;
 
     public UvIdx from(LivingAndHealthRes response) {
         return UvIdx.builder()
                 .dateTime(response.getDateTime())
-                .uvIdxDay1(response.getDay1())
-                .uvIdxDay2(response.getDay2())
-                .uvIdxDay3(response.getDay3())
-                .uvIdxDay4(response.getDay4())
+                .day1(response.getDay1())
+                .day2(response.getDay2())
+                .day3(response.getDay3())
+                .day4(response.getDay4())
                 .build();
     }
 

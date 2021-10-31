@@ -31,24 +31,24 @@ public class AsthmaIdx extends BaseTime implements LivingAndHealthIdx {
     private BigRegion bigRegion;
 
     @Column
-    private String asthmaIdxDay1;
+    private String day1;
 
     @Column
-    private String asthmaIdxDay2;
+    private String day2;
 
     @Column
-    private String asthmaIdxDay3;
+    private String day3;
 
     @Column
-    private String asthmaIdxDay4;
+    private String day4;
 
     public AsthmaIdx from(LivingAndHealthRes response) {
         return AsthmaIdx.builder()
                 .dateTime(response.getDateTime())
-                .asthmaIdxDay1(response.getDay1())
-                .asthmaIdxDay2(response.getDay2())
-                .asthmaIdxDay3(response.getDay3())
-                .asthmaIdxDay4(response.getDay4())
+                .day1(response.getDay1())
+                .day2(response.getDay2())
+                .day3(response.getDay3())
+                .day4(response.getDay4())
                 .build();
     }
 

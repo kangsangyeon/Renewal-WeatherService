@@ -31,24 +31,24 @@ public class FoodPoisoningIdx extends BaseTime implements LivingAndHealthIdx {
     private BigRegion bigRegion;
 
     @Column
-    private String foodPoisoningIdxDay1;
+    private String day1;
 
     @Column
-    private String foodPoisoningIdxDay2;
+    private String day2;
 
     @Column
-    private String foodPoisoningIdxDay3;
+    private String day3;
 
     @Column
-    private String foodPoisoningIdxDay4;
+    private String day4;
 
     public FoodPoisoningIdx from(LivingAndHealthRes response) {
         return FoodPoisoningIdx.builder()
                 .dateTime(response.getDateTime())
-                .foodPoisoningIdxDay1(response.getDay1())
-                .foodPoisoningIdxDay2(response.getDay2())
-                .foodPoisoningIdxDay3(response.getDay3())
-                .foodPoisoningIdxDay4(response.getDay4())
+                .day1(response.getDay1())
+                .day2(response.getDay2())
+                .day3(response.getDay3())
+                .day4(response.getDay4())
                 .build();
     }
 

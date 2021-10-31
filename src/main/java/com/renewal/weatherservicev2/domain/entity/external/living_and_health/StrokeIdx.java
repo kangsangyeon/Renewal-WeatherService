@@ -31,24 +31,24 @@ public class StrokeIdx extends BaseTime implements LivingAndHealthIdx {
     private BigRegion bigRegion;
 
     @Column
-    private String strokeIdxDay1;
+    private String day1;
 
     @Column
-    private String strokeIdxDay2;
+    private String day2;
 
     @Column
-    private String strokeIdxDay3;
+    private String day3;
 
     @Column
-    private String strokeIdxDay4;
+    private String day4;
 
     public StrokeIdx from(LivingAndHealthRes response) {
         return StrokeIdx.builder()
                 .dateTime(response.getDateTime())
-                .strokeIdxDay1(response.getDay1())
-                .strokeIdxDay2(response.getDay2())
-                .strokeIdxDay3(response.getDay3())
-                .strokeIdxDay4(response.getDay4())
+                .day1(response.getDay1())
+                .day2(response.getDay2())
+                .day3(response.getDay3())
+                .day4(response.getDay4())
                 .build();
     }
 

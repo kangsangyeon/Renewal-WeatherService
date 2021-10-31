@@ -31,24 +31,24 @@ public class OakPollenRiskIdx extends BaseTime implements LivingAndHealthIdx {
     private BigRegion bigRegion;
 
     @Column
-    private String oakPollenRiskIdxDay1;
+    private String day1;
 
     @Column
-    private String oakPollenRiskIdxDay2;
+    private String day2;
 
     @Column
-    private String oakPollenRiskIdxDay3;
+    private String day3;
 
     @Column
-    private String oakPollenRiskIdxDay4;
+    private String day4;
 
     public OakPollenRiskIdx from(LivingAndHealthRes response) {
         return OakPollenRiskIdx.builder()
                 .dateTime(response.getDateTime())
-                .oakPollenRiskIdxDay1(response.getDay1())
-                .oakPollenRiskIdxDay2(response.getDay2())
-                .oakPollenRiskIdxDay3(response.getDay3())
-                .oakPollenRiskIdxDay4(response.getDay4())
+                .day1(response.getDay1())
+                .day2(response.getDay2())
+                .day3(response.getDay3())
+                .day4(response.getDay4())
                 .build();
     }
 

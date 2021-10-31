@@ -31,24 +31,24 @@ public class PinePollenRiskIdx extends BaseTime implements LivingAndHealthIdx {
     private BigRegion bigRegion;
 
     @Column
-    private String pinePollenRiskIdxDay1;
+    private String day1;
 
     @Column
-    private String pinePollenRiskIdxDay2;
+    private String day2;
 
     @Column
-    private String pinePollenRiskIdxDay3;
+    private String day3;
 
     @Column
-    private String pinePollenRiskIdxDay4;
+    private String day4;
 
     public PinePollenRiskIdx from(LivingAndHealthRes response) {
         return PinePollenRiskIdx.builder()
                 .dateTime(response.getDateTime())
-                .pinePollenRiskIdxDay1(response.getDay1())
-                .pinePollenRiskIdxDay2(response.getDay2())
-                .pinePollenRiskIdxDay3(response.getDay3())
-                .pinePollenRiskIdxDay4(response.getDay4())
+                .day1(response.getDay1())
+                .day2(response.getDay2())
+                .day3(response.getDay3())
+                .day4(response.getDay4())
                 .build();
     }
 

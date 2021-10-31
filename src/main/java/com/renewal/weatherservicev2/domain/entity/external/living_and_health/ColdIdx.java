@@ -31,24 +31,24 @@ public class ColdIdx extends BaseTime implements LivingAndHealthIdx {
     private BigRegion bigRegion;
 
     @Column
-    private String coldIdxDay1;
+    private String day1;
 
     @Column
-    private String coldIdxDay2;
+    private String day2;
 
     @Column
-    private String coldIdxDay3;
+    private String day3;
 
     @Column
-    private String coldIdxDay4;
+    private String day4;
 
     public ColdIdx from(LivingAndHealthRes response) {
         return ColdIdx.builder()
                 .dateTime(response.getDateTime())
-                .coldIdxDay1(response.getDay1())
-                .coldIdxDay2(response.getDay2())
-                .coldIdxDay3(response.getDay3())
-                .coldIdxDay4(response.getDay4())
+                .day1(response.getDay1())
+                .day2(response.getDay2())
+                .day3(response.getDay3())
+                .day4(response.getDay4())
                 .build();
     }
 

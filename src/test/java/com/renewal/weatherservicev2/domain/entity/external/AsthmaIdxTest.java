@@ -32,13 +32,13 @@ class AsthmaIdxTest {
         LivingAndHealthRes response = connectionService.connectAndGetParsedResponse(request);
         AsthmaIdx asthmaIdx =  AsthmaIdx.builder()
                 .dateTime(response.getDateTime())
-                .asthmaIdxDay1(response.getDay1())
-                .asthmaIdxDay2(response.getDay2())
-                .asthmaIdxDay3(response.getDay3())
-                .asthmaIdxDay4(response.getDay4())
+                .day1(response.getDay1())
+                .day2(response.getDay2())
+                .day3(response.getDay3())
+                .day4(response.getDay4())
                 .build();
 
         assertEquals(response.getDateTime(), asthmaIdx.getDateTime());
-        assertEquals(response.getDay1(), asthmaIdx.getAsthmaIdxDay1());
+        assertEquals(response.getDay1(), asthmaIdx.getDay1());
     }
 }
