@@ -1,7 +1,6 @@
 package com.renewal.weatherservicev2.controller;
 
 import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
-import com.renewal.weatherservicev2.domain.vo.openapi.response.weather.WeatherRes;
 import com.renewal.weatherservicev2.repository.common.BigRegionRepository;
 import com.renewal.weatherservicev2.service.raw_data.living_and_health.common.LivingAndHealthIdxService;
 import lombok.RequiredArgsConstructor;

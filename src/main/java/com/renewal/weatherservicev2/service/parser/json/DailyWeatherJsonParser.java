@@ -1,6 +1,6 @@
 package com.renewal.weatherservicev2.service.parser.json;
 
-import com.renewal.weatherservicev2.domain.vo.openapi.response.weather.DailyWeatherRes;
+import com.renewal.weatherservicev2.domain.vo.openapi.response.weather.common.DailyWeatherJsonRes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONArray;
@@ -18,7 +18,7 @@ public class DailyWeatherJsonParser {
     /**
      * @param day 1 - 첫쨰날, 2 - 둘째날 etc.
      */
-    public DailyWeatherRes parseFrom(String data, int day) throws RuntimeException {
+    public DailyWeatherJsonRes parseFrom(String data, int day) throws RuntimeException {
         try {
             JSONObject response = parseContentFrom(data, day);
 
@@ -37,7 +37,7 @@ public class DailyWeatherJsonParser {
             String humidity = jsonParser.parseNumberFrom(response, "humidity").toString();
             String windSpeed = jsonParser.parseNumberFrom(response, "wind_speed").toString();
 
-            return DailyWeatherRes.builder()
+            return DailyWeatherJsonRes.builder()
                     .weatherIcon(icon)
                     .weatherMain(main)
                     .weatherDescription(description)

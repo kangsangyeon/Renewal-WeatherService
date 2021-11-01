@@ -8,6 +8,7 @@ import java.util.List;
 @Component
 public class OpenApiTypeUtil {
 
+    // 생활기상지수, 보건기상지수
     public static final String ASTHMA = "ASTHMA";
     public static final String COLD = "COLD";
     public static final String FOOD_POISONING = "FOOD_POISONING";
@@ -33,4 +34,15 @@ public class OpenApiTypeUtil {
         livingAndHealthOpenApiTypeList.add(UV);
         livingAndHealthOpenApiTypeList.add(WEEDS_POLLEN_RISK);
     }
+
+    // 날씨
+    public static final String HUMIDITY = "HUMIDITY";
+    public static final String RAIN_PER = "RAIN_PER";
+    public static final String WIND = "WIND";
+    public static final String TEMP_DAY = "TEMP_DAY";
+    public static final String TEMP_MAX = "TEMP_MAX";
+    public static final String TEMP_MIN = "TEMP_MIN";
+    public static final String WEATHER_MAIN = "WEATHER_MAIN";
+    public static final String WEATHER_ICON = "WEATHER_ICON";
+    public static final String WEATHER_DESCRIPTION = "WEATHER_DESCRIPTION";
 }
