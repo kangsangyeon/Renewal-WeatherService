@@ -1,6 +1,5 @@
 package com.renewal.weatherservicev2.domain.vo.openapi.response.weather.daily;
 
-import com.renewal.weatherservicev2.domain.vo.openapi.response.weather.abtr.Days7;
 import com.renewal.weatherservicev2.domain.vo.openapi.response.weather.common.DailyWeatherJsonRes;
 import lombok.Getter;
 import lombok.Setter;
