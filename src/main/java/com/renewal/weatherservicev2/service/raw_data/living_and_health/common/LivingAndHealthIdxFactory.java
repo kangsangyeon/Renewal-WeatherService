@@ -3,7 +3,7 @@ package com.renewal.weatherservicev2.service.raw_data.living_and_health.common;
 import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
 import com.renewal.weatherservicev2.exception.NonServicePeriodException;
 import com.renewal.weatherservicev2.service.raw_data.living_and_health.specific.*;
-import com.renewal.weatherservicev2.util.OpenApiTypeUtil;
+import com.renewal.weatherservicev2.util.OpenApiType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -25,28 +25,28 @@ public class LivingAndHealthIdxFactory {
     public void callDataFromOpenApiAndSave(String type, String date, BigRegion bigRegion) {
         try {
             switch (type.toUpperCase()) {
-                case OpenApiTypeUtil.ASTHMA:
+                case OpenApiType.ASTHMA:
                     asthmaIdxService.callAndSaveData(date, bigRegion);
                     break;
-                case OpenApiTypeUtil.COLD:
+                case OpenApiType.COLD:
                     coldIdxService.callAndSaveData(date, bigRegion);
                     break;
-                case OpenApiTypeUtil.FOOD_POISONING:
+                case OpenApiType.FOOD_POISONING:
                     foodPoisoningIdxService.callAndSaveData(date, bigRegion);
                     break;
-                case OpenApiTypeUtil.OAK_POLLEN_RISK:
+                case OpenApiType.OAK_POLLEN_RISK:
                     oakPollenIdxService.callAndSaveData(date, bigRegion);
                     break;
-                case OpenApiTypeUtil.PINE_POLLEN_RISK:
+                case OpenApiType.PINE_POLLEN_RISK:
                     pinePollenIdxService.callAndSaveData(date, bigRegion);
                     break;
-                case OpenApiTypeUtil.STROKE:
+                case OpenApiType.STROKE:
                     strokeIdxService.callAndSaveData(date, bigRegion);
                     break;
-                case OpenApiTypeUtil.UV:
+                case OpenApiType.UV:
                     uvIdxService.callAndSaveData(date, bigRegion);
                     break;
-                case OpenApiTypeUtil.WEEDS_POLLEN_RISK:
+                case OpenApiType.WEEDS_POLLEN_RISK:
                     weedsPollenRiskIdxService.callAndSaveData(date, bigRegion);
                     break;
                 default:

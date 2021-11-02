@@ -1,7 +1,7 @@
 package com.renewal.weatherservicev2.domain.entity.external.weather.daily;
 
+import com.renewal.weatherservicev2.domain.entity.common.BaseTime;
 import com.renewal.weatherservicev2.domain.entity.external.abstr.DailyWeather;
-import com.renewal.weatherservicev2.domain.vo.openapi.response.weather.common.DailyWeatherJsonRes;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,10 +9,9 @@ import javax.persistence.*;
 @Getter
 @Entity
 @Builder
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class DailyTempMin implements DailyWeather {
+public class DailyTempMin extends BaseTime implements DailyWeather {
 
     @Id
     @Column(name = "daily_temp_min_id")

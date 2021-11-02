@@ -1,7 +1,7 @@
 package com.renewal.weatherservicev2.service.raw_data.living_and_health.common;
 
 import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
-import com.renewal.weatherservicev2.util.OpenApiTypeUtil;
+import com.renewal.weatherservicev2.util.OpenApiType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class LivingAndHealthIdxService {
     @Transactional
     public void callDataFromOpenApiAndSaveByRegion(String date, BigRegion bigRegion) {
         log.info("## start calling {} region open api data!", bigRegion.getId());
-        List<String> types = OpenApiTypeUtil.livingAndHealthOpenApiTypeList;
+        List<String> types = OpenApiType.livingAndHealthOpenApiTypeList;
 
         for (String type : types) {
             livingAndHealthIdxFactory.callDataFromOpenApiAndSave(type, date, bigRegion);

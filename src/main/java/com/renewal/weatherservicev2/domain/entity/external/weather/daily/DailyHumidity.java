@@ -1,5 +1,6 @@
 package com.renewal.weatherservicev2.domain.entity.external.weather.daily;
 
+import com.renewal.weatherservicev2.domain.entity.common.BaseTime;
 import com.renewal.weatherservicev2.domain.entity.external.abstr.DailyWeather;
 import lombok.*;
 
@@ -8,10 +9,9 @@ import javax.persistence.*;
 @Getter
 @Entity
 @Builder
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class DailyHumidity implements DailyWeather {
+public class DailyHumidity extends BaseTime implements DailyWeather {
 
     @Id
     @Column(name = "daily_humidity_id")

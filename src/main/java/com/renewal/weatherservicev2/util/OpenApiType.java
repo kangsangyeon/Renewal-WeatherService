@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class OpenApiTypeUtil {
+public class OpenApiType {
 
     // 생활기상지수, 보건기상지수
     public static final String ASTHMA = "ASTHMA";
@@ -42,6 +42,7 @@ public class OpenApiTypeUtil {
     public static final String TEMP_DAY = "TEMP_DAY";
     public static final String TEMP_MAX = "TEMP_MAX";
     public static final String TEMP_MIN = "TEMP_MIN";
+    public static final String TEMP_HOUR = "TEMP_HOUR";
     public static final String WEATHER_MAIN = "WEATHER_MAIN";
     public static final String WEATHER_ICON = "WEATHER_ICON";
     public static final String WEATHER_DESCRIPTION = "WEATHER_DESCRIPTION";

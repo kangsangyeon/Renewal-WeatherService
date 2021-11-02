@@ -1,4 +1,4 @@
-package com.renewal.weatherservicev2.domain.vo.openapi.response.weather.common;
+package com.renewal.weatherservicev2.domain.vo.openapi.response.weather;
 
 import lombok.*;
 
@@ -7,15 +7,13 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class DailyWeatherJsonRes {
+public class DailyOpenApiRes {
     private String weatherIcon;
     private String weatherMain;
     private String weatherDescription;
-
     private String tempDay;
     private String tempMin;
     private String tempMax;
-
     private String rainPer;
     private String humidity;
     private String windSpeed;
