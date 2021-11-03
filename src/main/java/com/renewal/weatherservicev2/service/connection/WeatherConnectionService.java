@@ -1,7 +1,8 @@
 package com.renewal.weatherservicev2.service.connection;
 
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
-import com.renewal.weatherservicev2.domain.vo.openapi.response.weather.DailyWeatherRes;
+import com.renewal.weatherservicev2.domain.vo.openapi.response.weather.HourlyWeatherRes;
+import com.renewal.weatherservicev2.domain.vo.openapi.response.weather.WeatherRes;
 import com.renewal.weatherservicev2.service.parser.json.DailyWeatherJsonParser;
 import com.renewal.weatherservicev2.service.parser.json.HourlyWeatherJsonParser;
 import lombok.RequiredArgsConstructor;
@@ -19,9 +20,12 @@ public class WeatherConnectionService {
     private final DailyWeatherJsonParser dailyWeatherJsonParser;
     private final HourlyWeatherJsonParser hourlyWeatherJsonParser;
 
-    public DailyWeatherRes connectAndGetParsedResponse(OpenApiRequestInterface request) {
+    public WeatherRes connectAndGetParsedResponse(OpenApiRequestInterface request) {
         URL url = request.makeUrl();
         String data = apiConnection.connect(url);
-        return dailyWeatherJsonParser.parseFrom(data);
+        return WeatherRes.builder()
+                .dailyWeatherRes(dailyWeatherJsonParser.parseFrom(data))
+                .hourlyWeatherRes(new HourlyWeatherRes())
+                .build();
     }
 }

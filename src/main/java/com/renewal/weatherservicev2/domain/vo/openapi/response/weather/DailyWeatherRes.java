@@ -1,7 +1,7 @@
 package com.renewal.weatherservicev2.domain.vo.openapi.response.weather;
 
+import com.renewal.weatherservicev2.domain.entity.external.abstr.DailyWeatherType;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiResponseInterface;
-import com.renewal.weatherservicev2.util.OpenApiType;
 import lombok.*;
 
 @Getter
@@ -24,15 +24,15 @@ public class DailyWeatherRes implements OpenApiResponseInterface {
 
     public static DailyWeatherRes create() {
         return DailyWeatherRes.builder()
-                .humidity(DailyRes.create(OpenApiType.HUMIDITY))
-                .rainPer(DailyRes.create(OpenApiType.RAIN_PER))
-                .tempDay(DailyRes.create(OpenApiType.TEMP_DAY))
-                .tempMax(DailyRes.create(OpenApiType.TEMP_MAX))
-                .tempMin(DailyRes.create(OpenApiType.TEMP_MIN))
-                .weatherDescription(DailyRes.create(OpenApiType.WEATHER_DESCRIPTION))
-                .weatherMain(DailyRes.create(OpenApiType.WEATHER_MAIN))
-                .weatherIcon(DailyRes.create(OpenApiType.WEATHER_ICON))
-                .wind(DailyRes.create(OpenApiType.WIND))
+                .humidity(DailyRes.create(DailyWeatherType.HUMIDITY))
+                .rainPer(DailyRes.create(DailyWeatherType.RAIN_PER))
+                .tempDay(DailyRes.create(DailyWeatherType.TEMP_DAY))
+                .tempMax(DailyRes.create(DailyWeatherType.TEMP_MAX))
+                .tempMin(DailyRes.create(DailyWeatherType.TEMP_MIN))
+                .weatherDescription(DailyRes.create(DailyWeatherType.WEATHER_DESCRIPTION))
+                .weatherMain(DailyRes.create(DailyWeatherType.WEATHER_MAIN))
+                .weatherIcon(DailyRes.create(DailyWeatherType.WEATHER_ICON))
+                .wind(DailyRes.create(DailyWeatherType.WIND))
                 .build();
     }
 

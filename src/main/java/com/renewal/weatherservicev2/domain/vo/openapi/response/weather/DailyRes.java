@@ -1,6 +1,7 @@
 package com.renewal.weatherservicev2.domain.vo.openapi.response.weather;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.renewal.weatherservicev2.domain.entity.external.abstr.DailyWeatherType;
 import lombok.*;
 
 @Getter
@@ -12,7 +13,7 @@ import lombok.*;
 public class DailyRes {
 
     @JsonIgnore
-    private String type;
+    private DailyWeatherType type;
 
     private String day1;
     private String day2;
@@ -22,7 +23,7 @@ public class DailyRes {
     private String day6;
     private String day7;
 
-    public static DailyRes create(String type) {
+    public static DailyRes create(DailyWeatherType type) {
         return DailyRes.builder()
                 .type(type)
                 .build();
