@@ -3,12 +3,13 @@ package com.renewal.weatherservicev2.domain.entity.external.weather.daily;
 import com.renewal.weatherservicev2.domain.entity.external.abstr.DailyWeather;
 import com.renewal.weatherservicev2.domain.entity.external.abstr.DailyWeatherInterface;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 
 @Getter
 @Entity
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class DailyHumidity extends DailyWeather implements DailyWeatherInterface {

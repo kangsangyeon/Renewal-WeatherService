@@ -1,28 +1,22 @@
 package com.renewal.weatherservicev2.domain.entity.external.weather.daily;
 
-import com.renewal.weatherservicev2.domain.entity.common.BaseTime;
+import com.renewal.weatherservicev2.domain.entity.external.abstr.DailyWeather;
 import com.renewal.weatherservicev2.domain.entity.external.abstr.DailyWeatherInterface;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 
 @Getter
 @Entity
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DailyRainPer extends BaseTime implements DailyWeatherInterface {
+public class DailyRainPer extends DailyWeather implements DailyWeatherInterface {
 
     @Id
     @Column(name = "daily_rain_per_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String day1;
-    private String day2;
-    private String day3;
-    private String day4;
-    private String day5;
-    private String day6;
-    private String day7;
 }

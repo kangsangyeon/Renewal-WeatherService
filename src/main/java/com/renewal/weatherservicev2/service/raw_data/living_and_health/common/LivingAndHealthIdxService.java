@@ -18,7 +18,7 @@ public class LivingAndHealthIdxService {
 
     @Transactional
     public void callDataFromOpenApiAndSaveByRegion(String date, BigRegion bigRegion) {
-        log.info("## start calling {} region open api data!", bigRegion.getId());
+        log.info("## start calling {} region open api data!", bigRegion.getName());
         LivingAndHealthIdxType[] types = LivingAndHealthIdxType.values();
 
         for (LivingAndHealthIdxType type : types) {
