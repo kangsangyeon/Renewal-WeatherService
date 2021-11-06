@@ -1,12 +1,19 @@
 package com.renewal.weatherservicev2.domain.entity.external.abstr;
 
-import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
-import com.renewal.weatherservicev2.domain.vo.openapi.response.living_and_health.LivingAndHealthRes;
+import com.renewal.weatherservicev2.domain.entity.common.BaseTime;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
-public interface LivingAndHealthIdx {
+import javax.persistence.MappedSuperclass;
 
-    LivingAndHealthIdx from(LivingAndHealthRes response);
-
-    void joinRegion(BigRegion bigRegion);
-
+@Getter
+@SuperBuilder
+@MappedSuperclass
+@NoArgsConstructor
+public abstract class LivingAndHealthIdx extends BaseTime {
+    private String dateTime;
+    private String day1;
+    private String day2;
+    private String day3;
+    private String day4;
 }
