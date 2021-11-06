@@ -8,6 +8,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class WeatherRes {
-    private DailyWeatherRes dailyWeatherRes;
-    private HourlyWeatherRes hourlyWeatherRes;
+    private DailyWeatherRes daily;
+    private HourlyWeatherRes hourly;
 }

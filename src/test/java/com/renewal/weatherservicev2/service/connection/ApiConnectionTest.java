@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 
 @SpringBootTest
@@ -36,7 +35,7 @@ class ApiConnectionTest {
 
     @Test
     @DisplayName("기상정보 API 연결 테스트")
-    void connectWeatherApi() throws MalformedURLException {
+    void connectWeatherApi() {
 
         OpenApiRequestInterface request = WeatherReq.builder()
                 .latitude("37.5638")

@@ -5,6 +5,5 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class RegionUtil {
-
     public ClassPathResource csvResource = new ClassPathResource("data/region.csv");
 }
