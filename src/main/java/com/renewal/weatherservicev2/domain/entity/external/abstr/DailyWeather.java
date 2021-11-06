@@ -11,7 +11,7 @@ import javax.persistence.MappedSuperclass;
 @SuperBuilder
 @MappedSuperclass
 @NoArgsConstructor
-public abstract class DailyWeather extends BaseTime {
+public class DailyWeather extends BaseTime {
     private String day1;
     private String day2;
     private String day3;

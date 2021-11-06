@@ -1,7 +1,11 @@
 package com.renewal.weatherservicev2.domain.vo.openapi.response.weather;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.renewal.weatherservicev2.domain.entity.common.SmallRegion;
+import com.renewal.weatherservicev2.domain.entity.external.abstr.DailyWeather;
+import com.renewal.weatherservicev2.domain.entity.external.abstr.DailyWeatherInterface;
 import com.renewal.weatherservicev2.domain.entity.external.abstr.DailyWeatherType;
+import com.renewal.weatherservicev2.domain.entity.external.weather.daily.DailyHumidity;
 import lombok.*;
 
 @Getter
