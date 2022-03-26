@@ -31,7 +31,7 @@ public class ColdIdxService {
     private ColdIdx callData(String date, String admCode) throws NonServicePeriodException {
 
         if(dateTimeUtil.getMonthYYYYMMDD(date) >= 5 && dateTimeUtil.getMonthYYYYMMDD(date) <= 8) {
-            throw new NonServicePeriodException("감기가능지수 자료제공기간인 4-9월이 아닙니다.");
+            throw new NonServicePeriodException("감기가능지수 자료제공기간인 9-4월이 아닙니다.");
         }
 
         OpenApiRequestInterface request = ColdIdxReq.builder()
