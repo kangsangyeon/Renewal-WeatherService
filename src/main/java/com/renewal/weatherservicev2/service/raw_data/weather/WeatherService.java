@@ -2,10 +2,12 @@ package com.renewal.weatherservicev2.service.raw_data.weather;
 
 import com.renewal.weatherservicev2.domain.entity.common.SmallRegion;
 import com.renewal.weatherservicev2.domain.entity.external.weather.daily.*;
+import com.renewal.weatherservicev2.domain.entity.external.weather.hourly.*;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
 import com.renewal.weatherservicev2.domain.vo.openapi.request.weather.WeatherReq;
 import com.renewal.weatherservicev2.domain.vo.openapi.response.weather.WeatherRes;
 import com.renewal.weatherservicev2.repository.weather.daily.*;
+import com.renewal.weatherservicev2.repository.weather.hourly.*;
 import com.renewal.weatherservicev2.service.common.AsyncService;
 import com.renewal.weatherservicev2.service.connection.WeatherConnectionService;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +30,12 @@ public class WeatherService {
     private final DailyWeatherMainRepository dailyWeatherMainRepository;
     private final DailyWindRepository dailyWindRepository;
 
+    private final HourlyWeatherMainRepository hourlyWeatherMainRepository;
+    private final HourlyWeatherDescriptionRepository hourlyWeatherDescriptionRepository;
+    private final HourlyWeatherIconRepository hourlyWeatherIconRepository;
+    private final HourlyTempRepository hourlyTempRepository;
+    private final HourlyRainPerRepository hourlyRainPerRepository;
+
     private final AsyncService asyncService;
     private final WeatherConnectionService weatherConnectionService;
 
@@ -39,9 +47,9 @@ public class WeatherService {
 
     private WeatherRes callData(String latitude, String longitude) {
         OpenApiRequestInterface request = WeatherReq.builder()
-                .latitude(latitude)
-                .longitude(longitude)
-                .build();
+                                                    .latitude(latitude)
+                                                    .longitude(longitude)
+                                                    .build();
 
         return weatherConnectionService.connectAndGetParsedResponse(request);
     }
@@ -56,6 +64,13 @@ public class WeatherService {
         dailyWeatherDescriptionRepository.save(DailyWeatherDescription.createFrom(weatherRes));
         dailyWeatherMainRepository.save(DailyWeatherMain.createFrom(weatherRes));
         dailyWeatherIconRepository.save(DailyWeatherIcon.createFrom(weatherRes));
+        dailyWindRepository.save(DailyWind.createFrom(weatherRes));
+
+        hourlyWeatherMainRepository.save(HourlyWeatherMain.createFrom(weatherRes));
+        hourlyWeatherDescriptionRepository.save(HourlyWeatherDescription.createFrom(weatherRes));
+        hourlyWeatherIconRepository.save(HourlyWeatherIcon.createFrom(weatherRes));
+        hourlyTempRepository.save(HourlyTemp.createFrom(weatherRes));
+        hourlyRainPerRepository.save(HourlyRainPer.createFrom(weatherRes));
     }
 
 }

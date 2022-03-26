@@ -22,16 +22,16 @@ public class DailyRainPer extends DailyWeather implements DailyWeatherInterface 
     private Long id;
 
     public static DailyRainPer createFrom(WeatherRes weatherRes) {
-        DailyRes response = weatherRes.getDaily().getHumidity();
+        DailyRes response = weatherRes.getDaily().getRainPer();
         return DailyRainPer.builder()
-                .day1(response.getDay1())
-                .day2(response.getDay2())
-                .day3(response.getDay3())
-                .day4(response.getDay4())
-                .day5(response.getDay5())
-                .day6(response.getDay6())
-                .day7(response.getDay7())
-                .build();
+                           .day1(response.getDay1())
+                           .day2(response.getDay2())
+                           .day3(response.getDay3())
+                           .day4(response.getDay4())
+                           .day5(response.getDay5())
+                           .day6(response.getDay6())
+                           .day7(response.getDay7())
+                           .build();
     }
 
 }

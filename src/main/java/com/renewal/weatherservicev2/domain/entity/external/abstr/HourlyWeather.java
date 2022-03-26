@@ -2,11 +2,15 @@ package com.renewal.weatherservicev2.domain.entity.external.abstr;
 
 import com.renewal.weatherservicev2.domain.entity.common.BaseTime;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.MappedSuperclass;
 
 @Getter
+@SuperBuilder
 @MappedSuperclass
+@NoArgsConstructor
 public abstract class HourlyWeather extends BaseTime {
     private String hour1;
     private String hour2;
