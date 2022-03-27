@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class LivingAndHealthIdxBatch {
 
-    private final LivingAndHealthIdxService livingAndHealthIdxService;
+    private final LivingAndHealthService livingAndHealthIdxService;
     private final BigRegionRepository bigRegionRepository;
 
     private final DateTimeUtil dateTimeUtil;
