@@ -8,6 +8,12 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CoordinateVO {
-    private String latitude;
+
     private String longitude;
+
+    private String latitude;
+
+    public boolean isNotNull() {
+        return longitude != null && latitude != null;
+    }
 }

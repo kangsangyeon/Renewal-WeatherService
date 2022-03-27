@@ -15,6 +15,8 @@ import com.renewal.weatherservicev2.service.raw_data.weather.WeatherService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequiredArgsConstructor
 public class DevController {
@@ -39,9 +41,19 @@ public class DevController {
         livingAndHealthIdxService.callDataFromOpenApiAndSaveByRegion(request.getDate(), bigRegion);
     }
 
-    @GetMapping("/dev/weathers")
-    public WeatherRes test() {
-        SmallRegion smallRegion = smallRegionRepository.findById(1L).orElseThrow(null);
+    @GetMapping("/dev/api/simplify/weather")
+    public WeatherRes devSimplifyWeather(CoordinateVO coordinateVO) {
+
+        SmallRegion smallRegion = null;
+
+        if (coordinateVO.isNotNull()) {
+            RegionVO region = geoService.reverseGeocoding(coordinateVO);
+            BigRegion bigRegion = bigRegionRepository.findByName(region.getBigRegion());
+            smallRegion = smallRegionRepository.findByBigRegionAndName(bigRegion, region.getSmallRegion()).orElseThrow(null);
+        }
+        else {
+            smallRegion = smallRegionRepository.findById(1L).orElseThrow(null);
+        }
 
         return weatherService.callDataFromOpenApiAndSaveByRegionAfterReturnResult(smallRegion);
     }
