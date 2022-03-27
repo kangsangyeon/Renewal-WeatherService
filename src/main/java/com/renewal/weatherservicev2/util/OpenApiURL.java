@@ -6,6 +6,9 @@ public interface OpenApiURL {
     String URL_ENCODED_KEY_FOR_DATA_GO_KR = "zhvzvF5vNC7ufu7H%2BQnPJtEQbF2QdNZ0qdvZWLeR%2BnL0UwxwnCgrkmxKB9oqCXVSJp95YTliRHwzxvGdrvjetg%3D%3D";
     String URL_DECODED_KEY_FOR_DATA_GO_KR = "zhvzvF5vNC7ufu7H+QnPJtEQbF2QdNZ0qdvZWLeR+nL0UwxwnCgrkmxKB9oqCXVSJp95YTliRHwzxvGdrvjetg==";
     String URL_KEY_FOR_OPEN_WEATHER_MAP_ORG = "9a7b20a6b2f22e3ad28e7a16a19ae5de";
+    String URL_KEY_FOR_NAVER_GEO_API_KEY_ID = "et23d38qwi";
+    String URL_KEY_FOR_NAVER_GEO_API_KEY = "6RmECdY1MD4qhrXo7UNCFIzkfBr2XmheawWfrB8Y";
+    String URL_KEY_FOR_KAKAO_GEO_AUTHORIZATION = "KakaoAK 00fe8b530605b8965d56229072117e02";
 
     // 보건기상지수 조회서비스 - 공공데이터포털
     String OPEN_API_URL_FOR_HEALTH = "http://apis.data.go.kr/1360000/HealthWthrIdxServiceV2";
@@ -28,4 +31,8 @@ public interface OpenApiURL {
 
     // 시간별, 일별 기상데이터 - 오픈웨더
     String OPEN_API_URL_FOR_WEATHER = "https://api.openweathermap.org/data/2.5/onecall";
+
+    // geo
+    String OPEN_API_URL_FOR_NAVER_REVERSE_GEOCODING = "https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/gc";
+    String OPEN_API_URL_FOR_KAKAO_TRANSCOORD = "https://dapi.kakao.com/v2/local/geo/transcoord.json?input_coord=WGS84&output_coord=WTM";
 }

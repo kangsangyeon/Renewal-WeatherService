@@ -2,12 +2,13 @@ package com.renewal.weatherservicev2.controller;
 
 import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
 import com.renewal.weatherservicev2.domain.entity.common.SmallRegion;
-import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
-import com.renewal.weatherservicev2.domain.vo.openapi.request.weather.WeatherReq;
+import com.renewal.weatherservicev2.domain.vo.CoordinateReq;
+import com.renewal.weatherservicev2.domain.vo.RegionVO;
 import com.renewal.weatherservicev2.domain.vo.openapi.response.weather.WeatherRes;
 import com.renewal.weatherservicev2.repository.common.BigRegionRepository;
 import com.renewal.weatherservicev2.repository.common.SmallRegionRepository;
-import com.renewal.weatherservicev2.service.connection.WeatherConnectionService;
+import com.renewal.weatherservicev2.service.raw_data.geo.GeoService;
+import com.renewal.weatherservicev2.service.raw_data.living_and_health.common.LivingAndHealthIdxBatch;
 import com.renewal.weatherservicev2.service.raw_data.living_and_health.common.LivingAndHealthIdxService;
 import com.renewal.weatherservicev2.service.raw_data.weather.WeatherService;
 import lombok.RequiredArgsConstructor;
@@ -20,8 +21,16 @@ public class DevController {
     private final BigRegionRepository bigRegionRepository;
     private final SmallRegionRepository smallRegionRepository;
     private final LivingAndHealthIdxService livingAndHealthIdxService;
-
     private final WeatherService weatherService;
+
+    private final LivingAndHealthIdxBatch livingAndHealthIdxBatch;
+
+    private final GeoService geoService;
+
+    @GetMapping("/dev/api/do_batch/living_and_health")
+    public void devDoBatchLivingAndHealth() {
+        livingAndHealthIdxBatch.callDataFromOpenApiAndSave();
+    }
 
     @PostMapping("/dev/living_and_health_idx")
     public void saveLivingAndHealthIdx(@RequestBody TestVO request) {
@@ -35,4 +44,10 @@ public class DevController {
 
         return weatherService.callDataFromOpenApiAndSaveByRegionAfterReturnResult(smallRegion);
     }
+
+    @GetMapping("/dev/api/open_api/reverse_geocoding")
+    public RegionVO devReverseGeocoding(CoordinateReq coordinateDto) {
+        return geoService.reverseGeocoding(coordinateDto);
+    }
+    
 }

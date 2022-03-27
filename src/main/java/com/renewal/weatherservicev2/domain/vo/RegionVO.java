@@ -7,7 +7,9 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class CoordinateReq {
-    private String latitude;
-    private String longitude;
+public class RegionVO {
+
+    private String bigRegion;
+
+    private String smallRegion;
 }

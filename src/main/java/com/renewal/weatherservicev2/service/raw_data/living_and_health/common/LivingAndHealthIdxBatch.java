@@ -14,9 +14,16 @@ import java.util.List;
 @RequiredArgsConstructor
 public class LivingAndHealthIdxBatch {
 
-    private final BigRegionRepository bigRegionRepository;
-    private final DateTimeUtil dateTimeUtil;
     private final LivingAndHealthIdxService livingAndHealthIdxService;
+    private final BigRegionRepository bigRegionRepository;
+
+    private final DateTimeUtil dateTimeUtil;
+
+
+    public void tryUpdateLatestDataFromOpenApi() {
+        String date = dateTimeUtil.getNowYYYYMMDD();
+        // TODO: 이미 최신 데이터가 있는지 확인하고 저장한다.
+    }
 
     public void callDataFromOpenApiAndSave() {
         String date = dateTimeUtil.getNowYYYYMMDD();
