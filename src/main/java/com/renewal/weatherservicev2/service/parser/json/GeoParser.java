@@ -1,9 +1,12 @@
 package com.renewal.weatherservicev2.service.parser.json;
 
 import com.renewal.weatherservicev2.domain.vo.RegionVO;
+import com.renewal.weatherservicev2.domain.vo.TMCoordinateVO;
 import com.sun.org.apache.xerces.internal.parsers.DOMParser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -15,6 +18,8 @@ import java.io.StringReader;
 @Component
 @RequiredArgsConstructor
 public class GeoParser {
+
+    private final CommonJsonParser jsonParser;
 
     public RegionVO parseNaverReverseGeocoding(String data) {
 
@@ -46,4 +51,23 @@ public class GeoParser {
         }
     }
 
+    public TMCoordinateVO parseKakaoConvertWGS84ToWTM(String data) {
+
+        try {
+
+            JSONObject jsonObject = (JSONObject) CommonJsonParser.jsonParser.parse(data);
+            JSONArray documentsElem = jsonParser.parseArrayFrom(jsonObject, "documents");
+            JSONObject documentsItemElem = jsonParser.parseObjectFrom(documentsElem, 0);
+
+            double x = jsonParser.parseDoubleFrom(documentsItemElem, "x");
+            double y = jsonParser.parseDoubleFrom(documentsItemElem, "y");
+
+            return new TMCoordinateVO(x, y);
+
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            throw new RuntimeException();
+        }
+
+    }
 }

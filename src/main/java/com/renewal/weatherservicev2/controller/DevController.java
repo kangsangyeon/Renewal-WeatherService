@@ -2,8 +2,9 @@ package com.renewal.weatherservicev2.controller;
 
 import com.renewal.weatherservicev2.domain.entity.common.BigRegion;
 import com.renewal.weatherservicev2.domain.entity.common.SmallRegion;
-import com.renewal.weatherservicev2.domain.vo.CoordinateReq;
+import com.renewal.weatherservicev2.domain.vo.CoordinateVO;
 import com.renewal.weatherservicev2.domain.vo.RegionVO;
+import com.renewal.weatherservicev2.domain.vo.TMCoordinateVO;
 import com.renewal.weatherservicev2.domain.vo.openapi.response.weather.WeatherRes;
 import com.renewal.weatherservicev2.repository.common.BigRegionRepository;
 import com.renewal.weatherservicev2.repository.common.SmallRegionRepository;
@@ -46,8 +47,13 @@ public class DevController {
     }
 
     @GetMapping("/dev/api/open_api/reverse_geocoding")
-    public RegionVO devReverseGeocoding(CoordinateReq coordinateDto) {
+    public RegionVO devReverseGeocoding(CoordinateVO coordinateDto) {
         return geoService.reverseGeocoding(coordinateDto);
     }
-    
+
+    @GetMapping("/dev/api/open_api/convert_wgs84_to_wtm")
+    public TMCoordinateVO devConvertWGS84ToWTM(CoordinateVO coordinateVO) {
+        return geoService.convertWGS84ToWTM(coordinateVO);
+    }
+
 }

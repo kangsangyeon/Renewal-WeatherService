@@ -30,6 +30,10 @@ public class CommonJsonParser {
         return (String) object.get(field);
     }
 
+    public double parseDoubleFrom(JSONObject object, String field){
+        return (double) object.get(field);
+    }
+
     public Number parseNumberFrom(JSONObject object, String field) {
         return (Number) object.get(field);
     }

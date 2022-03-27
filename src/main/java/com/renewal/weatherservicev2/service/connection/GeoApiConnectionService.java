@@ -1,7 +1,9 @@
 package com.renewal.weatherservicev2.service.connection;
 
 import com.renewal.weatherservicev2.domain.vo.RegionVO;
+import com.renewal.weatherservicev2.domain.vo.TMCoordinateVO;
 import com.renewal.weatherservicev2.domain.vo.openapi.abstr.OpenApiRequestInterface;
+import com.renewal.weatherservicev2.domain.vo.openapi.request.geo.ConvertWGS84ToWTMReq;
 import com.renewal.weatherservicev2.service.parser.json.GeoParser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +23,7 @@ public class GeoApiConnectionService {
 
     private final GeoParser geoParser;
 
-    public RegionVO connectAndGetParsedResponse(OpenApiRequestInterface request) {
+    public RegionVO reverseGeocoding(OpenApiRequestInterface request) {
         URL url = request.makeUrl();
 
         try {
@@ -53,6 +55,38 @@ public class GeoApiConnectionService {
 
     }
 
+    public TMCoordinateVO convertWGS84ToWTM(ConvertWGS84ToWTMReq request) {
+
+        URL url = request.makeUrl();
+
+        try {
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("Content-type", "application/json");
+
+            connection.addRequestProperty("Authorization", "KakaoAK 00fe8b530605b8965d56229072117e02");
+
+            BufferedReader readerData = makeResponseFromApiConnection(connection);
+
+            StringBuilder data = new StringBuilder();
+            String readerDataLine;
+            while ((readerDataLine = readerData.readLine()) != null) {
+                data.append(readerDataLine);
+            }
+            readerData.close();
+            connection.disconnect();
+
+            TMCoordinateVO tmCoordinateVO = geoParser.parseKakaoConvertWGS84ToWTM(data.toString());
+            return tmCoordinateVO;
+
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            log.error("## [connect] end. error occurred! url = {}", url);
+            throw new RuntimeException(e.getMessage());
+        }
+
+    }
+
     // 상태코드에 따른 응답값 가져오기
     private BufferedReader makeResponseFromApiConnection(HttpURLConnection connection) throws IOException {
         if (connection.getResponseCode() >= 200 && connection.getResponseCode() <= 300) {
@@ -60,5 +94,4 @@ public class GeoApiConnectionService {
         }
         return new BufferedReader(new InputStreamReader(connection.getErrorStream()));
     }
-
 }

@@ -1,5 +1,6 @@
 package com.renewal.weatherservicev2.domain.vo;
 
+
 import lombok.*;
 
 @Getter
@@ -7,7 +8,10 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class CoordinateReq {
-    private String latitude;
-    private String longitude;
+public class TMCoordinateVO {
+
+    private double x;
+
+    private double y;
+
 }
